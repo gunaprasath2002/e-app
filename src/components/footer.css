@@ -1,0 +1,104 @@
+/* Footer Base Styles */
+footer {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    padding: 2rem 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Company Info Section */
+  footer h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00bcd4;
+    margin-bottom: 1rem;
+  }
+  
+  footer p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #dcdcdc;
+  }
+  
+  /* Quick Links */
+  footer ul:active {
+    padding: 0;
+    list-style-type: none;
+    color:#00bcd4;
+
+  }
+  
+  footer ul li:hover{
+    margin-bottom: 0.1rem;
+    color:#00bcd4;
+  }
+  
+  footer ul li a {
+    font-size: 0.9rem;
+    color: #dcdcdc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  footer ul li a:hover {
+    color: #00bcd4;
+  }
+  
+  
+  /* Contact Info Section */
+  footer .contact-icons a {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-right: 1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  footer .contact-icons a:hover {
+    color: #00bcd4;
+    transform: scale(1.2);
+  }
+
+
+  
+  
+  /* Divider Line */
+  footer .divider {
+    margin: 2rem 0;
+    height: 1px;
+    background-color: #444444;
+  }
+  
+  /* Copyright Text */
+  footer .text-center {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+  }
+  
+  footer .text-center a {
+    color: #00bcd4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  footer .text-center a:hover {
+    color: #ffffff;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    footer h5 {
+      font-size: 1.3rem;
+    }
+  
+    footer p, footer ul li a, footer .text-center {
+      font-size: 0.8rem;
+    }
+  
+    footer .contact-icons a {
+      font-size: 1rem;
+    }
+  }
+  .footer{
+    box-shadow: 0 1px 4px blue;
+
+  }
