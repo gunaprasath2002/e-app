@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/e-app/static/css/main.ac867374.css",
+    "main.js": "/e-app/static/js/main.90ddc2d7.js",
+    "static/js/488.cbad3376.chunk.js": "/e-app/static/js/488.cbad3376.chunk.js",
+    "static/media/mobile.jpeg": "/e-app/static/media/mobile.548af85818d5729ed965.jpeg",
+    "static/media/otp.png": "/e-app/static/media/otp.9ccd02578fe29e7fd8bd.png",
+    "static/media/bootstrap-icons.woff?": "/e-app/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/e-app/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
+    "static/media/gui.jpg": "/e-app/static/media/gui.b94e3aa67190a401d693.jpg",
+    "static/media/book2.avif": "/e-app/static/media/book2.5ab9d414e9b10347bc47.avif",
+    "static/media/novel.avif": "/e-app/static/media/novel.199910e61705c8a2ec44.avif",
+    "static/media/piano.jpg": "/e-app/static/media/piano.8477c4f53e13b80c1668.jpg",
+    "static/media/laptop.avif": "/e-app/static/media/laptop.53299f05032f173e9dca.avif",
+    "static/media/mens.avif": "/e-app/static/media/mens.637e2a0b5dee61afb3ed.avif",
+    "static/media/kitchen.avif": "/e-app/static/media/kitchen.089846301af656d217c5.avif",
+    "static/media/women.avif": "/e-app/static/media/women.16e8fa6f8f700a49749b.avif",
+    "static/media/regri.jpg": "/e-app/static/media/regri.0c8f25c0a9128df559d6.jpg",
+    "static/media/shirt.avif": "/e-app/static/media/shirt.be4fa246438ed3f770d5.avif",
+    "static/media/headphh.avif": "/e-app/static/media/headphh.9df96de7f0cc540a22ad.avif",
+    "index.html": "/e-app/index.html",
+    "main.ac867374.css.map": "/e-app/static/css/main.ac867374.css.map",
+    "main.90ddc2d7.js.map": "/e-app/static/js/main.90ddc2d7.js.map",
+    "488.cbad3376.chunk.js.map": "/e-app/static/js/488.cbad3376.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac867374.css",
+    "static/js/main.90ddc2d7.js"
+  ]
+}
