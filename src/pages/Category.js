@@ -1,15 +1,21 @@
 import React, { useState, useRef } from 'react';
-import { Row, Col, Card, Button } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Banner from "./Home";
-
 import './category.css';
 
 const CategorySelection = () => {
   const navigate = useNavigate();
-  const productSectionRef = useRef(null); // Reference to scroll to the product section
+  const productSectionRef = useRef(null);
 
-  const categories = ['All', 'Electronics', 'Fashion', 'Books', 'Home Appliances', 'Music'];
+  const categories = [
+    { name: 'All', image: require('../images/all1.jpg') },
+    { name: 'Electronics', image: require('../images/elect.avif') },
+    { name: 'Books', image: require('../images/bk.avif') },
+    { name: 'Fashion', image: require('../images/dress.jpg') },
+    { name: 'Home Appliances', image: require('../images/home.jpg') },
+    { name: 'Music', image: require('../images/mu.png') },
+  ];
 
   const products = [
     { id: 1, name: 'Laptop', offer: 'From ₹29,999', category: 'Electronics', image: require('../images/laptop.avif') },
@@ -45,49 +51,55 @@ const CategorySelection = () => {
 
   return (
     <>
-      <hr />
-      <section>
-        {/* Category Selection */}
-        <Row className="mb-4 m-1">
+      {/* Category Section */}
+      <section className="category-section">
+      <Row className="mb-4 text-center justify-content-center">
+ 
+        <div className="category-scroll-container">
           {categories.map((category, index) => (
-            <Col key={index} sm={2} className="mb-2">
-              <Button
-                variant={selectedCategory === category ? 'primary' : 'outline-primary'}
-                onClick={() => handleCategoryClick(category)}
-                className="w-100"
-              >
-                {category}
-              </Button>
+            <Col key={index} xs={4} sm={2} className="mb-4">
+ 
+            <div
+              className={`category-card ${selectedCategory === category.name ? 'active' : ''}`}
+              onClick={() => handleCategoryClick(category.name)}
+            >
+              <img
+                src={category.image}
+                alt={category.name}
+                className="category-image"
+              />
+              <div className="category-name">{category.name}</div>
+            </div>
+            </Col>
+          ))}
+        </div>
+        </Row>
+      </section>
+
+      <Banner />
+      <hr />
+      {/* Products Section */}
+      <div ref={productSectionRef}>
+        <h2>Products</h2>
+        <Row>
+          {filteredProducts.map((product) => (
+            <Col key={product.id} sm={2} className="mb-3">
+              <Card>
+                <Card.Img
+                  variant="top"
+                  src={product.image}
+                  style={{ height: '240px', objectFit: 'cover', cursor: 'pointer' }}
+                  onClick={() => handleImageClick(product.id)}
+                />
+                <Card.Body>
+                  <Card.Title>{product.name}</Card.Title>
+                  <Card.Text>{product.offer}</Card.Text>
+                </Card.Body>
+              </Card>
             </Col>
           ))}
         </Row>
-
-        <Banner />
-        <hr />
-        {/* Display Products */}
-        <div ref={productSectionRef}>
-          <h2>Products</h2>
-          <Row>
-            {filteredProducts.map((product) => (
-              <Col key={product.id} sm={2} className="mb-3 m-0.5">
-                <Card>
-                  <Card.Img
-                    variant="top"
-                    src={product.image}
-                    style={{ height: '240px', width: '230px', objectFit: 'cover', cursor: 'pointer' }}
-                    onClick={() => handleImageClick(product.id)}
-                  />
-                  <Card.Body>
-                    <Card.Title>{product.name}</Card.Title>
-                    <Card.Text>{product.offer}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </div>
-      </section>
-      <hr />
+      </div>
     </>
   );
 };

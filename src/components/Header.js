@@ -18,11 +18,11 @@ const Header = () => {
   const toggleToSignup = () => setIsLogin(false);
   const toggleToLogin = () => setIsLogin(true);
 
-  const locations = ["Nambiyur", "Gobi", "Anthiyur", "Sathy", "Covai"];
+  const locations = ["Tamil Nadu", "Kerala", "Andhra Pradesh", "Karnataka", "Telugana"];
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="py-2">
+      <Navbar  bg="white" variant="white" expand="lg" sticky="top" className="py-2">
         {/* Logo */}
         <Navbar.Brand href="/" className="d-flex align-items-center me-5 p-0">
           <img
@@ -32,7 +32,7 @@ const Header = () => {
             height="30"
             className="d-inline-block align-top me-1"
           />
-          <span className="text-blue">E-COM360</span>
+          <span className="text-dark">E-COM360</span>
         </Navbar.Brand>
 
         {/* Responsive Toggle */}
@@ -69,23 +69,23 @@ const Header = () => {
           <Nav>
             <Nav.Link href="/wishlist" className="d-flex align-items-center me-3">
               <i className="bi bi-heart-fill me-1 text-danger"></i>
-              <span className="text-blue">Wishlist</span>
+              <span className="text-dark">Wishlist</span>
             </Nav.Link>
           </Nav>
 
           {/* Login Button */}
-          <Nav className="btn btn-outline-primary p-0 m-1">
+          <Nav className="btn btn-outline-none p-0 m-1">
             <Nav.Link onClick={handleShow} className="d-flex align-items-center me-3">
               <i className="bi bi-person-circle me-1"></i>
-              <span className="text-white">Login</span>
+              <span className="text-dark">Login</span>
             </Nav.Link>
           </Nav>
 
           {/* Cart Icon */}
-          <Nav className="btn btn-outline-primary p-0 m-3">
-            <Nav.Link href="/cart" variant="outline-info" className="d-flex align-items-center me-3">
+          <Nav className="btn btn-none p-0 m-3">
+            <Nav.Link href="/cart" variant="outline-none" className="d-flex align-items-center me-3">
               <i className="bi bi-cart-fill me-1"></i>
-              <span className="text-white">Cart</span>
+              <span className="text-dark">Cart</span>
               <FaOpencart />
             </Nav.Link>
           </Nav>

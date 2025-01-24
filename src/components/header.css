@@ -1,6 +1,6 @@
 /* General Navbar Styling */
 .navbar {
-    box-shadow: 0 1px 4px blue;
+    box-shadow: 0 1px 2px rgb(119, 119, 227);
     font-family: 'Arial', sans-serif;
     background-color:aquamarine;
   }
@@ -127,7 +127,7 @@
 .dropdown-toggle {
   border-radius: 4px;
   background-color: #495057; /* Slightly lighter background */
-  color: #ffffff !important;
+  color: #140606 !important;
 }
 
 

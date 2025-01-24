@@ -12,6 +12,66 @@ Container {
     margin-bottom: 30px;
     color: #252424;
   }
+
+  .category-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    gap: 0px;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+    right: var();
+  }
+  
+  .category-scroll-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .category-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+  
+  
+
+  .category-section {
+    margin: 10px 0;
+    height:135px;
+  }
+  
+  .category-card {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: scale(1.1);
+  }
+  
+  .category-image {
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
+    transition: border-color 0.3s ease,box-shadow 0.3s ease;
+  }
+  
+  .category-card.active .category-image,
+  .category-card:hover .category-image {
+    border-color: #007bff;
+  }
+  
+  .category-name {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+  
   
   /* Category button styling */
   .btn {
