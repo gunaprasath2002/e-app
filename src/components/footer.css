@@ -10,14 +10,14 @@ footer {
   footer h5 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #00bcd4;
+    color: #0d0d0d;
     margin-bottom: 1rem;
   }
   
   footer p {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #dcdcdc;
+    color: #0f0e0e;
   }
   
   /* Quick Links */
@@ -30,31 +30,31 @@ footer {
   
   footer ul li:hover{
     margin-bottom: 0.1rem;
-    color:#00bcd4;
+    color:#0d0ded;
   }
   
   footer ul li a {
     font-size: 0.9rem;
-    color: #dcdcdc;
+    color: #2c11fa;
     text-decoration: none;
     transition: color 0.3s ease;
   }
   
   footer ul li a:hover {
-    color: #00bcd4;
+    color: #ed08ac;
   }
   
   
   /* Contact Info Section */
   footer .contact-icons a {
     font-size: 1.2rem;
-    color: #ffffff;
+    color: #280eee;
     margin-right: 1rem;
     transition: transform 0.3s ease, color 0.3s ease;
   }
   
   footer .contact-icons a:hover {
-    color: #00bcd4;
+    color: #ea13b1;
     transform: scale(1.2);
   }
 
@@ -81,7 +81,7 @@ footer {
   }
   
   footer .text-center a:hover {
-    color: #ffffff;
+    color: #e60e0e;
   }
   
   /* Responsive Design */

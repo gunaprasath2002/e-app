@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, } from "react-bootstrap";
+import { Container, Row, Col,Nav } from "react-bootstrap";
 import "./footer.css";
 import otpImg from "../images/otp.png";
 import { Link } from "react-router-dom";
@@ -21,25 +21,30 @@ const Footer = () => {
 
           {/* Quick Links */}
           <Col md={4} sm={6} className="mb-4">
-            <h5>Quick Links</h5>
+            <h5>Quick Links</h5>                
             <ul className="list-unstyled">
               <li>
-              
-                <Link to="/" className="text-blue text-decoration-none">
+                <Nav>
+                <Nav.Link href="/" className="text-dark text-decoration-none">
                   Home
-                </Link>
+                  </Nav.Link>
+                </Nav>
               
               </li>
               
               <li>
-                <Link to="/about" className="text-blue text-decoration-none">
+                <Nav>
+                <Nav.Link href="/about" className="text-dark text-decoration-none">
                   About Us
-                </Link>
+                </Nav.Link>
+                </Nav>
               </li>
               <li>
-                <Link to="/contact" className="textblue text-decoration-none">
+                <Nav>
+                <Nav.Link href="/contact" className="text-dark text-decoration-none">
                   Contact Us
-                </Link>
+                </Nav.Link>
+                </Nav>
               </li>
             </ul>
           </Col>
@@ -52,16 +57,16 @@ const Footer = () => {
               Phone: 9944068447 <br />
               Address: 123 E-shop, Kullampalayam, Gobi.
             </p>
-
+            
             <div>
               <h5>Follow Us</h5>
-              <a href="#" className="text-white text-decoration-none me-3">
+              <a href="#" className="text-blue text-decoration-none me-3">
                 <i className="bi bi-facebook"></i>
               </a>
-              <a href="#" className="text-white text-decoration-none me-3">
+              <a href="#" className="text-blue text-decoration-none me-3">
                 <i className="bi bi-twitter"></i>
               </a>
-              <a href="#" className="text-white text-decoration-none me-3">
+              <a href="#" className="text-blue text-decoration-none me-3">
                 <i className="bi bi-instagram"></i>
               </a>
             </div>
@@ -73,32 +78,27 @@ const Footer = () => {
           <Col>
             <div className="mt-4">
               <div className="d-flex justify-content-center flex-wrap">
-                <img src={otpImg} className="img-fluid mb-3" style={{ width: "80px" }} alt="Logo" />
+              <a href="#" className="text-blue text-decoration-none me-3">
+              <img src={otpImg} className="img-fluid mb-3" style={{ width: "80px" }} alt="Logo" />
+                </a>
               </div>
               <div className="amazon-countries mt-3 mx-auto">
                 {[
                   "Australia",
                   "Brazil",
-                  "Canada",
                   "China",
                   "France",
                   "Germany",
-                  "Italy",
-                  "Japan",
-                  "Mexico",
-                  "Netherlands",
-                  "Poland",
+                  
                   "Singapore",
                   "Spain",
-                  "Turkey",
                   "United Arab Emirates",
-                  "United Kingdom",
                   "United States",
                 ].map((country, index) => (
                   <Link
                     key={index}
                     to=""
-                    className="text-blue text-decoration-none px-1"
+                    className="text-dark text-decoration-none px-1"
                   >
                     {country}
                   </Link>

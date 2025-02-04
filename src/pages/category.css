@@ -16,11 +16,12 @@ Container {
   .category-scroll-container {
     display: flex;
     overflow-x: auto;
-    padding: 10px 0;
-    gap: 0px;
+    padding: 4px 0;
     scrollbar-width: thin;
-    scrollbar-color: #ccc transparent;
+    scrollbar-color: #fcfbfe transparent;
     right: var();
+    gap: 8px;
+    
   }
   
   .category-scroll-container::-webkit-scrollbar {
@@ -45,6 +46,7 @@ Container {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 135px;
   }
   
   .category-card:hover {
@@ -101,6 +103,7 @@ Container {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border:blue;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 4px;
   }
   
   .card:hover {
@@ -138,6 +141,9 @@ Container {
   
     .card-img-top {
       height: 200px;
+    }
+    .category-card{
+      flex: 0 0 250px;
     }
   }
   

@@ -1,62 +1,59 @@
-import React, { useState } from "react";
-import { Container, Form, Button, Alert, Card } from "react-bootstrap";
+import React from 'react';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './login.css';
+import { FiMail, FiLock } from 'react-icons/fi';
 
-const LoginPage = () => {
-  const [emailOrMobile, setEmailOrMobile] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+const Login = () => {
+    return (
+        <Container fluid className="auth-container ">
+            <Row className="justify-content-center">
+            <Col xs={12} sm={10} md={8} lg={6} xl={5} className="p-3 p-sm-4">
+                    <div className="auth-card p-5">
+                        <h2 className="text-center mb-4">Login</h2>
+                        <Form>
+                            <Form.Group className="mb-4 position-relative">
+                            <Form.Control
+                                type="email"
+                                placeholder="Email"
+                                className="form-input py-2 py-sm-3"
+                                style={{ minHeight: '45px' }}
+                                />
+                                
+                                <FiMail className="input-icon" />
+                            </Form.Group>
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+                            <Form.Group className="mb-4 position-relative">
+                                <Form.Control
+                                    type="password"
+                                    placeholder="Password"
+                                    className="form-input py-3"
+                                />
+                                <FiLock className="input-icon" />
+                            </Form.Group>
 
-    // Validation for email or mobile number
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
-    const mobileRegex = /^[6-9]\d{9}$/; // Mobile number regex (10 digits, starting with 6-9)
+                            <Button variant="primary" className="submit-btn w-90 mb-3" style={{ minHeight: '45px' }}>
+                                Log In
+                            </Button>
 
-    if (!emailOrMobile || !password) {
-      setErrorMessage("Please fill in all fields.");
-    } else if (
-      !emailRegex.test(emailOrMobile) &&
-      !mobileRegex.test(emailOrMobile)
-    ) {
-      setErrorMessage("Please enter a valid email address or mobile number.");
-    } else {
-      setErrorMessage("");
-      alert("Login Successful!");
-    }
-  };
+                            <div className="text-center mb-3">
+                                <Link to="/forgot-password" className="auth-link text-decoration-none">
+                                    Forgot Password?
+                                </Link>
+                            </div>
 
-  return (
-    <Container className="d-flex justify-content-center align-items-center vh-100">
-      <Card className="shadow p-4" style={{ width: "100%", maxWidth: "400px" }}>
-        <h3 className="text-center mb-4">Login</h3>
-        {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-        <Form onSubmit={handleLogin}>
-          <Form.Group controlId="formEmailOrMobile" className="mb-3">
-            <Form.Label>Email Address or Mobile Number</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter email or mobile number"
-              value={emailOrMobile}
-              onChange={(e) => setEmailOrMobile(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formPassword" className="mb-3">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit" className="w-100">
-            Login
-          </Button>
-        </Form>
-      </Card>
-    </Container>
-  );
+                            <div className="text-center mt-4">
+                                <span className="text-muted">New here? </span>
+                                <Link to="/signup" className="auth-link text-decoration-none">
+                                    Create Account
+                                </Link>
+                            </div>
+                        </Form>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+    );
 };
 
-export default LoginPage;
+export default Login;

@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Banner from "./Home";
-import './category.css';
+import Slide from "./Slide";
+import "./category.css";
 
 const CategorySelection = () => {
   const navigate = useNavigate();
@@ -15,6 +16,10 @@ const CategorySelection = () => {
     { name: 'Fashion', image: require('../images/dress.jpg') },
     { name: 'Home Appliances', image: require('../images/home.jpg') },
     { name: 'Music', image: require('../images/mu.png') },
+    { name: 'Sports', image: require('../images/sports.jpg') },
+    { name: 'Automobiles', image: require('../images/cars.avif') },
+
+
   ];
 
   const products = [
@@ -30,7 +35,14 @@ const CategorySelection = () => {
     { id: 10, name: 'Piano', offer: 'Upto 80% Offer', category: 'Music', image: require('../images/piano.jpg') },
     { id: 11, name: 'Mobiles', offer: 'From ₹9,999', category: 'Electronics', image: require('../images/mobile.jpeg') },
     { id: 12, name: 'Men`s Wear', offer: 'Special Offer', category: 'Fashion', image: require('../images/mens.avif') },
-  ];
+    { id: 13, name: 'Football', offer: 'Min 70% Offer', category: 'Sports', image: require('../images/foot.avif') },
+    { id: 14, name: 'Cricket', offer: 'Upto 30% Offer', category: 'Sports', image: require('../images/cri.jpg') },
+    { id: 15, name: 'Helmet', offer: 'Min 50% Offer', category: 'Automobiles', image: require('../images/hel.avif') },
+    { id: 16, name: 'Bike', offer: 'From ₹150000', category: 'Automobiles', image: require('../images/bike.avif') },
+    { id: 17, name: 'kids', offer: 'Special Offer', category: 'Fashion', image: require('../images/kid.avif') },
+    { id: 18, name: 'Spare Parts', offer: 'Min 20% Offer', category: 'Automobiles', image: require('../images/spare.avif') },
+
+ ];
 
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -100,6 +112,8 @@ const CategorySelection = () => {
           ))}
         </Row>
       </div>
+      
+      <Slide />
     </>
   );
 };

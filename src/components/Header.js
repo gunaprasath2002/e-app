@@ -1,28 +1,20 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Form, FormControl, Offcanvas, Dropdown } from "react-bootstrap";
+import { Navbar, Nav, Form, FormControl, Dropdown } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./header.css";
 import otpImg from "../images/otp.png";
 import { FaOpencart } from "react-icons/fa";
-import LoginPage from "../pages/Login";
-import SignupPage from "../pages/Signup";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [show, setShow] = useState(false); // Manage offcanvas visibility
-  const [isLogin, setIsLogin] = useState(true); // Toggle between Login and Signup forms
   const [location, setLocation] = useState("Select Location"); // Store selected location
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const toggleToSignup = () => setIsLogin(false);
-  const toggleToLogin = () => setIsLogin(true);
+  const navigate = useNavigate();
 
   const locations = ["Tamil Nadu", "Kerala", "Andhra Pradesh", "Karnataka", "Telugana"];
 
   return (
     <>
-      <Navbar  bg="white" variant="white" expand="lg" sticky="top" className="py-2">
+      <Navbar bg="white" variant="white" expand="lg" sticky="top" className="py-2">
         {/* Logo */}
         <Navbar.Brand href="/" className="d-flex align-items-center me-5 p-0">
           <img
@@ -52,7 +44,7 @@ const Header = () => {
           {/* Location Dropdown */}
           <Dropdown className="me-4">
             <Dropdown.Toggle variant="outline-none" id="location-dropdown">
-              <i className="bi bi-geo-alt-fill me-1"></i>
+              <i className="bi bi-geo-alt-fill me-1 text-success"></i>
               {location}
             </Dropdown.Toggle>
 
@@ -75,7 +67,7 @@ const Header = () => {
 
           {/* Login Button */}
           <Nav className="btn btn-outline-none p-0 m-1">
-            <Nav.Link onClick={handleShow} className="d-flex align-items-center me-3">
+            <Nav.Link onClick={() => navigate("/login")} className="d-flex align-items-center me-3">
               <i className="bi bi-person-circle me-1"></i>
               <span className="text-dark">Login</span>
             </Nav.Link>
@@ -91,36 +83,6 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-
-      {/* Offcanvas for Login/Signup */}
-      <Offcanvas show={show} onHide={handleClose} placement="end" className="offcanvas-custom">
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>{isLogin ? "Login👽" : "Sign Up"}</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          {isLogin ? (
-            <>
-              <LoginPage />
-              <p className="mt-3 text-center">
-                Don't have an account?{" "}
-                <button className="btn btn-link p-0" onClick={toggleToSignup}>
-                  Sign Up
-                </button>
-              </p>
-            </>
-          ) : (
-            <>
-              <SignupPage />
-              <p className="mt-3 text-center">
-                Already have an account?{" "}
-                <button className="btn btn-link p-0" onClick={toggleToLogin}>
-                  Login
-                </button>
-              </p>
-            </>
-          )}
-        </Offcanvas.Body>
-      </Offcanvas>
     </>
   );
 };

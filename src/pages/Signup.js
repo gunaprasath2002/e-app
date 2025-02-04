@@ -1,74 +1,62 @@
-import React, { useState } from "react";
-import { Container, Form, Button, Alert, Card } from "react-bootstrap";
+import React from 'react';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './login.css';
+import { FiUser, FiMail, FiLock } from 'react-icons/fi';
 
-const SignupPage = () => {
-  const [emailOrMobile, setEmailOrMobile] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+const Signup = () => {
+    return (
+        <Container fluid className="auth-container">
+            <Row className="justify-content-center">
+            <Col xs={12} sm={10} md={8} lg={6} xl={5} className="p-3 p-sm-4">
+                    <div className="auth-card p-5">
+                        <h2 className="text-center mb-4">Create Account</h2>
+                        <Form>
+                            <Form.Group className="mb-4 position-relative">
+                           
+                            <Form.Control
+                               type="name"
+                                placeholder="name"
+                               className="form-input py-2 py-sm-3"
+                               style={{ minHeight: '45px' }}
+                                 />
+                                <FiUser className="input-icon" />
+                            </Form.Group>
 
-  const handleSignup = (e) => {
-    e.preventDefault();
+                            <Form.Group className="mb-4 position-relative">
+                                <Form.Control
+                                    type="email"
+                                    placeholder="Email"
+                                    className="form-input py-3"
+                                />
+                                <FiMail className="input-icon" />
+                            </Form.Group>
 
-    // Validation for email or mobile number
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
-    const mobileRegex = /^[6-9]\d{9}$/; // Mobile number regex (10 digits, starting with 6-9)
+                            <Form.Group className="mb-4 position-relative">
+                                <Form.Control
+                                    type="password"
+                                    placeholder="Password"
+                                    className="form-input py-3"
+                                />
+                                <FiLock className="input-icon" />
+                            </Form.Group>
 
-    if (!emailOrMobile || !password || !confirmPassword) {
-      setErrorMessage("Please fill in all fields.");
-    } else if (
-      !emailRegex.test(emailOrMobile) &&
-      !mobileRegex.test(emailOrMobile)
-    ) {
-      setErrorMessage("Please enter a valid email address or mobile number.");
-    } else if (password !== confirmPassword) {
-      setErrorMessage("Passwords do not match.");
-    } else {
-      setErrorMessage("");
-      alert("Sign-Up Successful!");
-    }
-  };
+                            <Button variant="primary" className="submit-btn w-90 mb-3" style={{ minHeight: '45px' }}>
+                                Sign Up
+                            </Button>
 
-  return (
-    <Container className="d-flex justify-content-center align-items-center vh-100">
-      <Card className="shadow p-4" style={{ width: "100%", maxWidth: "400px" }}>
-        <h3 className="text-center mb-4">Sign Up</h3>
-        {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-        <Form onSubmit={handleSignup}>
-          <Form.Group controlId="formEmailOrMobile" className="mb-3">
-            <Form.Label>Email Address or Mobile Number</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter email or mobile number"
-              value={emailOrMobile}
-              onChange={(e) => setEmailOrMobile(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formPassword" className="mb-3">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formConfirmPassword" className="mb-3">
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Confirm your password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit" className="w-100">
-            Sign Up
-          </Button>
-        </Form>
-      </Card>
-    </Container>
-  );
+                            <div className="text-center mt-4">
+                                <span className="text-muted">Already have an account? </span>
+                                <Link to="/login" className="auth-link text-decoration-none">
+                                    Log In
+                                </Link>
+                            </div>
+                        </Form>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+    );
 };
 
-export default SignupPage;
+export default Signup;
