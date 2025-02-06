@@ -9,7 +9,7 @@ import Signup from "./pages/Signup";
 import Forgot from "./pages/Forget";
 import Slide from "./pages/Slide";
 import About from "./pages/About";
-import Summa from "./pages/Summa";
+import Contact from "./pages/Contactus"; 
 
 
 
@@ -27,12 +27,11 @@ function App() {
 
          <Route path="/login" element={<Login />} />
          <Route path="/signup" element={<Signup />} />
-
-
          <Route path="/forgot-password" element={<Forgot />} />
    
          <Route path="/product-details/:productId" element={<Slide />} />
          <Route path="/about" element={<About />} />
+         <Route path="/contact" element={<Contact />} />
 
 
    

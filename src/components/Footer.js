@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col,Nav } from "react-bootstrap";
-import "./footer.css";
+import "../components/footer.css";
 import otpImg from "../images/otp.png";
 import { Link } from "react-router-dom";
 

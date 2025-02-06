@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './login.css';
+import '../pages/login.css';
 import { FiUser, FiMail, FiLock } from 'react-icons/fi';
 
 const Signup = () => {

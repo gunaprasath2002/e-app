@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Form, FormControl, Dropdown } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "./header.css";
+import "../components/header.css";
 import otpImg from "../images/otp.png";
 import { FaOpencart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
