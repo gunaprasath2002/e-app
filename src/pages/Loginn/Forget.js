@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import '../pages/login.css';
+import './login.css';
 import { FiMail, FiLock, FiSmartphone } from 'react-icons/fi';
 
 const ForgotPassword = () => {

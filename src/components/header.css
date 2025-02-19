@@ -1,235 +1,289 @@
-/* General Navbar Styling */
+/* ---------------- COMMON STYLES ---------------- */
+
+/* Header Main Styles */
 .navbar {
-    box-shadow: 0 1px 2px rgb(119, 119, 227);
-    font-family: 'Arial', sans-serif;
-    background-color:aquamarine;
-    background: transparent;
-    backdrop-filter: blur(10px);
-  }
-  
-  
-  /* Navbar Brand */
-  .navbar-brand{
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff !important;
-    transition: color 0.3s ease;
-    
-  }
-  
-  .navbar-brand:active {
-    color: #00bcd4 !important;
-  }
-  
-  /* Navigation Links */
-  .navbar-nav .nav-link {
-    font-size: 1rem;
-    color: #cccccc !important;
-    transition: color 0.3s ease;
-  }
-  
-  
-  
-  /* Search Bar */
- 
-    
-  
-  
-  .form-control {
-    border-color: #05d633;
-    box-shadow: 0 0 10px rgba(185, 57, 161, 0.5);
-  }
- 
-  
-  .btn-outline-light {
-    color: #fff;
-    background-color: #7ec50b;
-
-    border-color: #0a97c6;
-  }
-  
-  .btn-outline-light:hover {
-    color: #000;
-    background-color: #088db5;
-    border-color: #08a8c8;
-  }
-  
-  .offcanvas-custom .offcanvas-body {
-    padding: 20px;
-  
-  }
-  
-  .offcanvas-custom .btn-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .offcanvas-custom .btn-link:hover {
-    text-decoration: underline;
-  }
-  .offcanvas-custom {
-    max-width: 100%; /* Full-width on mobile */
-    width: 400px;    /* Fixed width on larger screens */
-    height: 535px;
-  }
-  
-  @media (max-width: 576px) {
-    .offcanvas-custom {
-      width: 100%;
-    }
-  }
-  
-  .offcanvas-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  
-   .nav-link .ms-1 {
-    font-size: 1rem;
-    color: #cccccc;
-  }
-  
-  .nav-link:hover .ms-1 {
-    color: #00bcd4;
-  }
-  .me-auto{
-    box-shadow: 0 1px 4px blue;
-
-  }
-
-  /* Header General Styles */
-
-
-.navbar-brand img {
-  border-radius: 50%; /* Make the logo circular */
-  border: 2px solid #2155e5;
-  width:70px;
-  height: 70px;
-  margin-left: 30px;
-   /* Add a white border around the logo */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
 }
 
-
-.navbar-nav .nav-link {
-  color: #ffffff !important;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #00bcd4 !important; /* Highlight color on hover */
-}
-
-.navbar-nav .nav-link.active {
-  color: #e90c9c !important; /* Highlight for the active page */
-}
-
-/* Dropdown Styles */
-.dropdown-toggle {
-  border-radius: 4px;
-  background-color: #0d66c0; /* Slightly lighter background */
-  color: #140606 !important;
-}
-
-
-.dropdown-menu {
-  background-color: #343a40; /* Same as navbar */
+.navbar-toggler {
   border: none;
+  outline: none;
 }
 
-.dropdown-item {
-  color: #2912db;
+/* Logo Styling */
+.navbar-brand img {
+  max-height: 50px;
 }
 
-.dropdown-item:hover {
-  background-color: #107ce9;
-  color: #f8c471;
+/* Search Bar */
+.search-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
-/* Form Control (Search Bar) */
 .form-control {
   border-radius: 20px;
-  background-color: #495057;
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  margin-left: 10px;
+  padding: 10px;
+  width: 100%;
 }
 
-.form-control::placeholder {
-  color: #0969c9; /* Placeholder text */
+.btn-outline-success {
+  border-radius: 20px;
+  padding: 8px 20px;
 }
 
-.form-control:focus {
-  background-color: #495057;
-  border: 1px solid #f39c12;
-  color: #ffffff;
-  box-shadow: none; /* Remove default focus shadow */
+/* Location Button */
+.location-btn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 400;
 }
 
-.bi-search {
-  color: #ffffff;
+/* Icons and Nav Links */
+.nav-link {
+  color: #333 !important;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-/* Buttons */
-.btn-outline-light {
-  color: #3a0fe8;
-  border-color: #ffffff;
-  transition: background-color 0.3s, color 0.3s;
+.nav-link:hover {
+  color: #28a745 !important;
 }
 
-.btn-outline-light:hover {
-  background-color: #f39c12;
-  color:#d2d1cecf;
+/* Wishlist & Cart Badge */
+.badge {
+  font-size: 12px;
+  padding: 3px 7px;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #28a745;
+  color: rgb(241, 236, 236);
 }
 
-/* Icons */
-.bi-heart-fill {
-  color: #f39c12; /* Wishlist icon color */
+/* Dropdown Styling */
+.navbar-nav .nav-item .dropdown-menu {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  min-width: 180px;
 }
 
-.bi-cart-fill {
-  color: #f0980c; /* Cart icon color */
-}
-.bi-person-circle{
-  color:lime;
+.navbar-nav .nav-item .dropdown-item {
+  font-size: 14px;
+  padding: 8px 15px;
 }
 
-/* Alignments */
-.navbar-nav {
-  align-items: center; /* Center align nav items vertically */
+.navbar-nav .nav-item .dropdown-item:hover {
+  background: #28a745;
+  color: #fff;
 }
 
-.navbar .me-3 {
-  margin-right: 1rem !important; /* Adjust spacing */
+/* Support Center */
+.nav-link .me-auto {
+  font-size: 18px;
+  font-weight: bold;
+  align-content: end;
 }
 
-.navbar .ms-auto {
-  margin-left: auto !important; /* Push items to the right */
+.nav-link small {
+  font-size: 12px;
+  color: #666;
 }
 
-/* Mobile View */
-@media (max-width: 768px) {
-  .navbar-brand {
-    font-size: 1rem;
+/* Second Navbar (Categories) */
+.navbar.bg-white {
+  padding: 8px 0;
+}
+
+.navbar.bg-white .nav-link {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.navbar.bg-white .nav-item .nav-link:hover {
+  color: #28a745 !important;
+}
+
+/* ---------------- RESPONSIVE STYLES ---------------- */
+
+/* 📌 Large Tablets (≤ 992px) */
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-collapse {
+    display: none;
+  }
+
+  .navbar-expand-lg .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-brand img {
+    max-height: 45px;
+  }
+
+  .search-container {
+    width: 70%;
   }
 
   .form-control {
-    width: 100%; /* Expand search bar on smaller screens */
-    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 8px;
   }
 
-  .btn-outline-light {
-    width: 100%; /* Make buttons full width */
-    margin-bottom: 10px;
+  .btn-outline-success {
+    padding: 7px 15px;
   }
 
-  .dropdown-toggle {
-    width: 100%; /* Expand dropdown */
+  .d-flex.align-items-center {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .bottom-navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-link small {
+    font-size: 12px;
+  }
+
+  .location-btn {
+    font-size: 14px;
   }
 }
 
+/* Sticky Bottom Navbar */
+.sticky-top {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f9f9f9;
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   
+}
+
+
+
+
+/* 📌 Mobile Phones (≤ 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 5px 0;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-collapse {
+    display: none;
+  }
+
+  .navbar-expand-lg .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-brand img {
+    max-height: 40px;
+  }
+
+  .search-container {
+    width: 90%;
+  }
+
+  .form-control {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .btn-outline-success {
+    padding: 6px 12px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .nav-link small {
+    display: none;
+  }
+
+  .bottom-navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .location-btn {
+    font-size: 13px;
+  }
+
+  .list-group-item {
+    font-size: 14px;
+  }
+}
+
+/* 📌 Very Small Phones (≤ 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 3px 0;
+  }
+
+  .navbar-brand img {
+    max-height: 35px;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .form-control {
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .btn-outline-success {
+    padding: 5px 10px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .badge {
+    font-size: 10px;
+    padding: 3px;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .list-group-item {
+    font-size: 12px;
+  }
+
+  .location-btn {
+    font-size: 12px;
+  }
+}

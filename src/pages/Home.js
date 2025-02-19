@@ -1,52 +1,54 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
+import Banner1 from "./images/bannerhome.jpg";
+import Banner2 from "./images/bannerhome1.jpg";
+import Banner3 from "./images/bannerhome2.jpg";
+import Banner4 from "./images/bannerhome3.jpg";
+import Banner5 from "./images/bannerhome4.jpg";
+import Banner6 from "./images/bannerhome5.jpg";
 import "./home.css";
 
 const BannerCarousel = () => {
   const navigate = useNavigate();
 
-  // Function to handle banner click
   const handleBannerClick = (productId) => {
-    navigate(`/product-details/${productId}`); // Navigate to the ProductDetails page with the productId
+    navigate(`/product-details/${productId}`);
   };
 
   return (
     <nav>
-  
-    <Carousel>
-      <Carousel.Item onClick={() => handleBannerClick(1)}>
-        <img
-          className="d-block w-100"
-          src="https://img.freepik.com/free-photo/sassy-goodlooking-redhead-female-yellow-sweater-listen-music-white-headphones-touch-earphones_1258-126219.jpg?ga=GA1.1.293462127.1735989792&semt=ais_hybrid"
-          alt="Music Products"
-          style={{ cursor: "pointer" }}
-        />
-        
-      </Carousel.Item>
+      <Carousel className="guna" indicators={true} controls={true} 
+        nextIcon={<span className="custom-arrow right-arrow">→</span>} 
+        prevIcon={<span className="custom-arrow left-arrow">←</span>}
+      >
+        <Carousel.Item className="pp" onClick={() => handleBannerClick(1)}>
+          <img className="d-block w-100 banner-img" src={Banner1} alt="Music Products" />
+        </Carousel.Item>
 
-      <Carousel.Item onClick={() => handleBannerClick(2)}>
-        <img
-          className="d-block w-100"
-          src="https://img.freepik.com/premium-photo/black-friday-concept-landing-page-template_1029473-10618.jpg?uid=R181942385&ga=GA1.1.293462127.1735989792&semt=ais_hybrid"
-          alt="Electronics Deals"
-          style={{ cursor: "pointer" }}
-        />
-        
-      </Carousel.Item>
+        <Carousel.Item className="pp">
+          <Link to="https://www.gadgets360.com/mobiles/realme-price-list">
+            <img className="d-block w-100 banner-img" src={Banner2} alt="Electronics Deals" />
+          </Link>
+        </Carousel.Item>
 
-      <Carousel.Item onClick={() => handleBannerClick(3)}>
-        <img
-          className="d-block w-100"
-          src="https://img.freepik.com/free-photo/black-friday-sales-sign-neon-light_23-2151833112.jpg?ga=GA1.1.293462127.1735989792&semt=ais_hybrid"
-          alt="Fashion Sale"
-          style={{ cursor: "pointer" }}
-        />
-        
-      </Carousel.Item>
-    </Carousel>
+        <Carousel.Item className="pp" onClick={() => handleBannerClick(3)}>
+          <img className="d-block w-100 banner-img" src={Banner3} alt="Fashion Sale" />
+        </Carousel.Item>
+
+        <Carousel.Item className="pp" onClick={() => handleBannerClick(3)}>
+          <img className="d-block w-100 banner-img" src={Banner4} alt="Fashion Sale" />
+        </Carousel.Item>
+
+        <Carousel.Item className="pp" onClick={() => handleBannerClick(3)}>
+          <img className="d-block w-100 banner-img" src={Banner5} alt="Fashion Sale" />
+        </Carousel.Item>
+
+        <Carousel.Item className="pp" onClick={() => handleBannerClick(3)}>
+          <img className="d-block w-100 banner-img" src={Banner6} alt="Fashion Sale" />
+        </Carousel.Item>
+      </Carousel>
     </nav>
   );
 };

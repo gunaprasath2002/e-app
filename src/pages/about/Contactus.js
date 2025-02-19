@@ -1,10 +1,28 @@
-import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 3000);
+  };
+
   return (
     <Container className="mt-5">
-      <h2 className="text-center  text-info mb-4">Contact Us</h2>
+      <h2 className="text-center text-info mb-4">Contact Us</h2>
+      {showAlert && <Alert variant="primary">Your message has been sent!💌</Alert>}
       <Row>
         {/* Contact Information */}
         <Col md={6} className="mb-4">
@@ -27,18 +45,18 @@ const ContactUs = () => {
         {/* Contact Form */}
         <Col md={6} className="mb-4">
           <h4>Get in Touch</h4>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter your name" />
+              <Form.Control type="text" name="name" placeholder="Enter your name" value={formData.name} onChange={handleChange} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="email">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter your email" />
+              <Form.Control type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="message">
               <Form.Label>Message</Form.Label>
-              <Form.Control as="textarea" rows={4} placeholder="Enter your message" />
+              <Form.Control as="textarea" name="message" rows={4} placeholder="Enter your message" value={formData.message} onChange={handleChange} required />
             </Form.Group>
             <Button variant="primary" type="submit">Submit</Button>
           </Form>

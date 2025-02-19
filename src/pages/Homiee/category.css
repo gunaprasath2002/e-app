@@ -1,0 +1,287 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .category-heading {
+    text-align: start;
+    margin: 20px 0;
+  }
+  
+  .category-scroll-container {
+    overflow-x: auto;
+    padding-bottom: 10px;
+    background: #f9f9f9;
+    scroll-behavior: smooth;
+  }
+  
+  /* Hide scrollbar for WebKit browsers */
+  .category-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .category-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 70px;
+    justify-content: start;
+  }
+  
+  /* Grid for smaller screens */
+  @media (max-width: 1024px) {
+    .category-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+  }
+  
+  .category-item {
+    text-align: center;
+    min-width: 120px;
+  }
+  
+  .category-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .category-image:hover {
+    transform: scale(1.1);
+  }
+  
+  .category-text {
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+  
+  .category-link {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .loading-text {
+    text-align: center;
+    font-size: 16px;
+    color: #777;
+  }
+  
+  
+
+
+
+
+  /* Product Card Styling */
+   /* Scrollable Product List */
+   .product-scroll-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #f9f9f9;
+  }
+
+  .product-list {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    gap: 25px;
+    white-space: nowrap;
+    scrollbar-width: none; /* Hide scrollbar */
+  }
+
+  .product-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+  }
+
+  .product-card {
+    min-width: 250px;
+    max-width: 270px;
+    min-height:300px;
+    background:#eef7ee;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s; 
+    box-shadow: 0px 4px 8px rgba(44, 5, 240, 0.1);
+    position: relative;
+  }
+
+  /* Image Container */
+  .product-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Hover Effect - Image Zoom */
+  .product-card:hover .product-image img {
+    transform: scale(1.1);
+  }
+
+  
+
+ 
+
+
+  .product-card:hover .product-actions {
+    opacity: 1;
+  }
+
+  /* Product Details */
+  .product-details {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .product-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .product-price {
+    color: #ff5722;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  /* Scroll Buttons */
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    background: rgba(38, 222, 75, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  .scroll-btn.left {
+    left: -10px;
+  }
+
+  .scroll-btn.right {
+    right: -10px;
+  }
+
+  .scroll-btn:hover {
+    background: black;
+  }
+
+
+
+
+  
+  /* Swiper Banner */
+  .swiper-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .swiper-slide img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Buttons */
+  button {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+  }
+  
+
+
+  /* Large Promo Card */
+  .promo img {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+  }
+  
+  .promo:hover img {
+    transform: scale(1.05);
+  }
+
+
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .card img {
+      height: 220px;
+    }
+    .card {
+      height: 380px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .card img {
+      height: 200px;
+    }
+    .card {
+      height: 360px;
+    }
+    .category-container img {
+      width: 80px;
+      height: 80px;
+    }
+    .swiper-slide img{
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card img {
+      height: 180px;
+    }
+    .card {
+      height: 340px;
+    }
+    .category-container img {
+      width: 70px;
+      height: 70px;
+    }
+    .swiper-slide img{
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card img {
+      height: 160px;
+    }
+    .card {
+      height: 300px;
+    }
+    .category-container img {
+      width: 60px;
+      height: 60px;
+    }
+    .swiper-slide img{
+      height: 300px;
+    }
+  }
+  

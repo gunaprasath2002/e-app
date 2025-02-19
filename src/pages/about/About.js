@@ -6,6 +6,8 @@ import banner2 from "../images/banner2.jpg";
 import banner3 from "../images/banner3.jpg";
 import video from "../images/video1.mp4";
 
+
+
 const AboutUs = () => {
   return (
     <Container fluid className="p-3">
@@ -26,7 +28,7 @@ const AboutUs = () => {
         <Col>
           <Carousel>
             <Carousel.Item>
-              <img className="d-block w-100" src={banner1} />
+              <img className="d-block w-100" src={banner1}/>
             </Carousel.Item>
             </Carousel>
             <br/>

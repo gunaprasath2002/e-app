@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import '../pages/slide.css';
 
 const Products = [
-  { id: 101, name: 'Elevate your morning routine with our classic ceramic coffee mug, Perfect for coffee lovers, or as a thoughtful gift!"', price: '₹299😍', image: require('../images/mud.avif') },
-  { id: 102, name: 'A replica of a real plant, designed to mimic the appearance and sometimes the texture of a living plant', price: '₹499🤩', image: require('../images/arti.avif') },
-  { id: 103, name: 'A sleek, modern wall clock featuring a minimalist design with clean lines and a high-contrast face', price: '₹899💰', image: require('../images/clock.avif') },
-  { id: 104, name: 'An ignitable wick embedded in wax that provides light and, in some cases, a fragrance.', price: '₹99🤩', image: require('../images/candle.avif') },
-  { id: 105, name: 'Bold and contemporary, this gold-plated brass ring boasts a geometric design with sharp angles.', price: '₹999💍', image: require('../images/ring.avif') },
-  { id: 106, name: 'A seat, especially for one person, usually for support and rest for the back.', price: '₹2,999😍', image: require('../images/chair.avif') },
-  { id: 107, name: 'A unique, hand-knitted scarf with color patterns, featuring a soft, luxurious yarn for warmth.', price: '₹2,499🤩', image: require('../images/art.avif') },
-  { id: 108, name: 'A small bag which a woman uses to carry things such as her money and keys when going out.', price: '₹1,599💰', image: require('../images/bag.avif') },
-  { id: 109, name: 'A toy is more than just an object; it is a vessel of joy, imagination, and fond memories.', price: '₹1,999😍', image: require('../images/toy.jpg') },
+  { id: 501, name: 'Elevate your morning routine with our classic ceramic coffee mug, Perfect for coffee lovers, or as a thoughtful gift!"', price: '₹299😍', image: require('../images/mud.avif') },
+  { id: 502, name: 'A replica of a real plant, designed to mimic the appearance and sometimes the texture of a living plant', price: '₹499🤩', image: require('../images/arti.avif') },
+  { id: 503, name: 'A sleek, modern wall clock featuring a minimalist design with clean lines and a high-contrast face', price: '₹899💰', image: require('../images/clock.avif') },
+  { id: 504, name: 'An ignitable wick embedded in wax that provides light and, in some cases, a fragrance.', price: '₹99🤩', image: require('../images/candle.avif') },
+  { id: 505, name: 'Bold and contemporary, this gold-plated brass ring boasts a geometric design with sharp angles.', price: '₹999💍', image: require('../images/ring.avif') },
+  { id: 506, name: 'A seat, especially for one person, usually for support and rest for the back.', price: '₹2,999😍', image: require('../images/chair.avif') },
+  { id: 507, name: 'A unique, hand-knitted scarf with color patterns, featuring a soft, luxurious yarn for warmth.', price: '₹2,499🤩', image: require('../images/art.avif') },
+  { id: 508, name: 'A small bag which a woman uses to carry things such as her money and keys when going out.', price: '₹1,599💰', image: require('../images/bag.avif') },
+  { id: 509, name: 'A toy is more than just an object; it is a vessel of joy, imagination, and fond memories.', price: '₹1,999😍', image: require('../images/toy.jpg') },
 ];
 
 const ProductCarousel = () => {
@@ -43,28 +43,28 @@ const ProductCarousel = () => {
   }, [isHovered]); // Restart scrolling when hover state changes
 
   return (
-    <div className="product-carousel">
-      <h2 className="title">Products You May Like!</h2>
+    <div className="product-carousell">
+      <h2 className="titlee">Products You May Like!</h2>
       {/* <button className="view-all-button" onClick={() => navigate('/products')}> */} 
         {/* View All</button> */}
 
 
       <div
-        className="scroll-container"
+        className="scroll-containerr"
         ref={scrollRef}
         onMouseEnter={() => setIsHovered(true)}  // Stop auto-scroll when mouse enters
         onMouseLeave={() => setIsHovered(false)} // Resume auto-scroll when mouse leaves
       >
         {Products.map((item) => (
-          <div key={item.id} className="product-card">
+          <div key={item.id} className="product-cardd">
             <img
               src={item.image}
               alt={item.name}
-              className="product-image"
+              className="product-imagee"
               onClick={() => navigate(`/product/${item.id}`)}
             />
-            <h3 className="product-name">{item.name}</h3>
-            <p className="product-price">{item.price}</p>
+            <h3 className="product-namee">{item.name}</h3>
+            <p className="product-pricee">{item.price}</p>
           </div>
         ))}
       </div>
