@@ -39,3 +39,13 @@
     max-width: 80%;
   }
 }
+
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-item {
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .dropdown-item:hover {
+  color: green !important;
+}
