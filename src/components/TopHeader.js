@@ -22,7 +22,7 @@ const Navbar = () => {
             alt="Logo"
             style={{ width: '50px', marginRight: '8px' }}
           />
-          <span>BrandName</span>
+          <span>E-com 360</span>
         </Link>
 
         {/* Toggle button for mobile view */}

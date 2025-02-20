@@ -35,7 +35,7 @@ footer ul li:hover {
 
 /* Newsletter Section with Background Image */
 .newsletter-section {
-  background: url('C:\Users\gunap\OneDrive\Desktop\react projects\ecom360\src\pages\images\footer1.jpg') no-repeat center center;
+  background-image: url("../pages/images/footer1.jpg");
   background-size: cover;
   padding: 40px;
   border-radius: 10px;
