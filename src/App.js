@@ -32,7 +32,7 @@ function App() {
        <br/>
         <Routes>
         <Route path="/" element={<Category />} />
-        <Route path="/product/101" element={<MobileList />} />
+        <Route path="/product/101" target ="#"element={<MobileList />} />
         <Route path="/product/:id" element={<ItemDetailsPage />} />
 
          <Route path="/product-details/:productId" element={<ProductDetails />} />
