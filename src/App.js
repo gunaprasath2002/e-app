@@ -10,20 +10,33 @@ import Forgot from "./pages/Loginn/Forget";
 import Slide from "./pages/Slide";
 import About from "./pages/about/About";
 import Contact from "./pages/about/Contactus"; 
+import { useState, createContext } from 'react';
+import CartPage from "./components/Cart";
+import Wishlist from "./components/Wishlist";
+import MobileList from "./pages/Product/ProductListPage";
+import ItemDetailsPage from "./pages/Product/ItemDetailsPage";
 
 
-
+export const CartContext = createContext();
+export const WishListContext = createContext();
 
 function App() {
+   const [cartItems, setCartItems] = useState([]);
+   const [wishItems, setWishItems] = useState([]);
+
   return (
-      <>
+   <CartContext.Provider value={{ cartItems, setCartItems}} >
+      <WishListContext.Provider value={{ wishItems, setWishItems}}> 
       <Router>
        <Header />
        <br/>
         <Routes>
         <Route path="/" element={<Category />} />
+        <Route path="/product/101" element={<MobileList />} />
+        <Route path="/product/:id" element={<ItemDetailsPage />} />
+
          <Route path="/product-details/:productId" element={<ProductDetails />} />
-         <Route path="/product/1" element={<ProductDetails />} />
+         {/* <Route path="/product/1" element={<ProductDetails />} /> */}
 
          <Route path="/login" element={<Login />} />
          <Route path="/signup" element={<Signup />} />
@@ -33,6 +46,8 @@ function App() {
          <Route path="/about" element={<About />} />
          <Route path="/contact" element={<Contact />} />
 
+         <Route path="/cart" element={<CartPage />} />
+         <Route path="/wishlist" element={<Wishlist />} />
 
    
         </Routes>
@@ -40,7 +55,8 @@ function App() {
        <Footer />
       </Router>
 
-   </>
+      </WishListContext.Provider>
+      </CartContext.Provider>
 );
 }
 

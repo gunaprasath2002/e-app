@@ -1,0 +1,85 @@
+/* Increase card size */
+.card {
+  height: 100%; /* Ensure all cards have equal height */
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Increase image size */
+.card img {
+  height: 200px; /* Adjust image height */
+  object-fit: contain; /* Ensure the image fits properly */
+  padding: 10px;
+}
+
+/* Ensure text inside the card has enough spacing */
+.card-body {
+  padding: 12px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-rating {
+  margin-top: 5px;
+}
+
+
+.sidebar {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.card-body{
+  font-size: 0.8rem;
+}
+/* Sticky Sidebar */
+.sidebar {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+/* Custom Checkbox */
+.custom-checkbox input[type="checkbox"] {
+  accent-color: #0d6efd;
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+
+/* Star Rating Filter */
+.star-filter {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.star-filter:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile Filter Button */
+.fixed-bottom {
+  z-index: 1050;
+}
+
+.container-fluid {
+  max-width: 95%; /* Expand width but keep some margin */
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    max-width: 100%; /* Full width on mobile */
+    padding: 0 10px;
+  }
+}
