@@ -49,7 +49,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://993d-59-97-51-97.ngrok-free.app/store/products/', {
+        const response = await fetch('https://ff16-59-97-51-97.ngrok-free.app/store/products/', {
           method: 'GET',
           headers: {
             "Accept": "application/json",
@@ -109,7 +109,7 @@ const Products = () => {
                     <div className="product-image">
                       <ImageLoader
                         onClick={() => handleChangeImage(product)}
-                        imageUrl={`https://993d-59-97-51-97.ngrok-free.app/${product.image}`}
+                        imageUrl={`https://ff16-59-97-51-97.ngrok-free.app/${product.image}`}
                       />
                     </div>
                     <div className="product-details">
