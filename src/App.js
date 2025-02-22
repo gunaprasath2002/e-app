@@ -15,6 +15,7 @@ import CartPage from "./components/Cart";
 import Wishlist from "./components/Wishlist";
 import MobileList from "./pages/Product/ProductListPage";
 import ItemDetailsPage from "./pages/Product/ItemDetailsPage";
+import BuyNow from "./pages/BuyNow"
 
 
 export const CartContext = createContext();
@@ -29,7 +30,7 @@ function App() {
       <WishListContext.Provider value={{ wishItems, setWishItems}}> 
       <Router>
        <Header />
-       <br/>
+       <hr/>
         <Routes>
         <Route path="/" element={<Category />} />
         <Route path="/product/101" target ="#"element={<MobileList />} />
@@ -48,6 +49,7 @@ function App() {
 
          <Route path="/cart" element={<CartPage />} />
          <Route path="/wishlist" element={<Wishlist />} />
+         <Route path="/buy" element={<BuyNow />} />
 
    
         </Routes>

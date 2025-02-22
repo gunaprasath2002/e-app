@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import itemData from "./itemData.json";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
@@ -115,7 +115,9 @@ const ItemDetails = ({ cartItems, setCartItems, wishItems, setWishItems }) => {
               Add to Cart
             </button>
           )}
+          <Link to="/buy">
           <button className="btn btn-warning btn-lg ms-2 mb-3">Buy Now</button>
+          </Link>
 
           {/* Customer Reviews */}
           <div className="mt-4">

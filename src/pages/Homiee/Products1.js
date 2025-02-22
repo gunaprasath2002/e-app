@@ -8,7 +8,7 @@ import "./category.css"; // Import styles
 
 
 const products1 = [
-  { id: 101, name: 'Glito Black Solid ', price: 450, img: require('../images/laptop.avif'), rating: 5 },
+  { id: 101, name: 'Glito Black Solid ', price: 450, img: require('../images/mobile.jpeg'), rating: 5 },
   { id: 102, name: 'Black Solid ', price: 500, img: require('../images/headphh.avif'), rating: 4 },
   { id: 102, name: 'Black Solid ', price: 500, img: require('../images/headphh.avif'), rating: 4 },
   { id: 102, name: 'Black Solid ', price: 500, img: require('../images/headphh.avif'), rating: 4 },

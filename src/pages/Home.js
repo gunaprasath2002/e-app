@@ -8,6 +8,8 @@ import Banner3 from "./images/bannerhome2.jpg";
 import Banner4 from "./images/bannerhome3.jpg";
 import Banner5 from "./images/bannerhome4.jpg";
 import Banner6 from "./images/bannerhome5.jpg";
+import Sbanner from "./images/storebanner.jpg";
+import Sbanner1 from "./images/storebanner2.jpg";
 import "./home.css";
 
 const BannerCarousel = () => {
@@ -27,6 +29,10 @@ const BannerCarousel = () => {
           <img className="d-block w-100 banner-img" src={Banner1} alt="Music Products" />
         </Carousel.Item>
 
+        <Carousel.Item className="pp" onClick={() => handleBannerClick(1)}>
+          <img className="d-block w-100 banner-img" src={Sbanner} alt="Music Products" />
+        </Carousel.Item>
+
         <Carousel.Item className="pp">
           <Link to="https://www.gadgets360.com/mobiles/realme-price-list">
             <img className="d-block w-100 banner-img" src={Banner2} alt="Electronics Deals" />
@@ -35,6 +41,10 @@ const BannerCarousel = () => {
 
         <Carousel.Item className="pp" onClick={() => handleBannerClick(3)}>
           <img className="d-block w-100 banner-img" src={Banner3} alt="Fashion Sale" />
+        </Carousel.Item>
+
+        <Carousel.Item className="pp" onClick={() => handleBannerClick(1)}>
+          <img className="d-block w-100 banner-img" src={Sbanner1} alt="Music Products" />
         </Carousel.Item>
 
         <Carousel.Item className="pp" onClick={() => handleBannerClick(3)}>

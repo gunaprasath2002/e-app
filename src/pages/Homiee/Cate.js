@@ -47,7 +47,7 @@ const Categories = () => {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "https://da9f-59-97-51-97.ngrok-free.app/store/categories/",
+          "https://993d-59-97-51-97.ngrok-free.app/store/categories/",
           {
             method: "GET",
             headers: {
@@ -78,7 +78,8 @@ const Categories = () => {
   }, []);
 
   return (
-    <Container fluid>
+    <>
+    {/* <Container fluid> */}
       <h4 className="category-heading">Featured Categories</h4>
 
       <div className="category-scroll-container">
@@ -88,7 +89,7 @@ const Categories = () => {
               <Link key={category.id} to={`/category/${category.id}`} className="category-link">
                 <div className="category-item">
                   {/* Use ImageLoader to fetch and display images */}
-                  <ImageLoader imageUrl={`https://da9f-59-97-51-97.ngrok-free.app/${category.image}`} />
+                  <ImageLoader imageUrl={`https://993d-59-97-51-97.ngrok-free.app/${category.image}`} />
                   <p className="category-text">{category.brand_name}</p>
                 </div>
               </Link>
@@ -98,7 +99,8 @@ const Categories = () => {
           )}
         </div>
       </div>
-    </Container>
+    {/* </Container> */}
+    </>
   );
 };
 
