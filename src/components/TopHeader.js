@@ -5,7 +5,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@popperjs/core"; // Ensure Popper.js is loaded
 import { Offcanvas } from "bootstrap"; // Explicitly import Offcanvas
 
-import { BsGeoAlt, BsPersonCircle, BsCart3, BsSearch, BsList, BsArrowLeft } from "react-icons/bs";
+import { BsGeoAlt, BsPersonCircle, BsCart3, BsSearch, BsList, BsArrowLeft, BsInfoCircle,BsTelephone, BsHouse } from "react-icons/bs";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { CartContext, WishListContext } from "../App";
 import "./header.css";
@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
         <div className="container d-flex align-items-center justify-content-between flex-nowrap">
           {/* Left Side: Logo & Brand */}
           {!showSearchBar && (
@@ -81,7 +81,7 @@ const Navbar = () => {
                 </button>
               )}
               <div className="input-group search-box">
-                <input className="form-control form-control-sm" type="search" placeholder="Search..." autoFocus />
+                <input className="form-control form-control-sm" type="search" placeholder="Search..." />
                 <button className="btn btn-secondary btn-sm" type="submit"><BsSearch /></button>
               </div>
             </form>
@@ -155,12 +155,44 @@ const Navbar = () => {
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body">
-          <ul className="list-unstyled">
-            <li><Link to="/" className="nav-link">Home</Link></li>
-            <li><Link to="/Wishlist" className="nav-link">Wishlist</Link></li>
-            <li><Link to="/cart" className="nav-link">Cart</Link></li>
-            <li><Link to="/Login" className="nav-link">Profile</Link></li>
+        <ul className="list-unstyled w-100">
+            <li>
+              <Link to="/" className="nav-link">
+                <BsHouse className="me-2" /> Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/Wishlist" className="nav-link">
+                <AiOutlineHeart className="me-2" /> Wishlist
+              </Link>
+            </li>
+            <li>
+              <Link to="/cart" className="nav-link">
+                <BsCart3 className="me-2" /> Cart
+              </Link>
+            </li>
+            <li>
+              <Link to="/Login" className="nav-link">
+                <BsPersonCircle className="me-2" /> Profile
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="nav-link">
+                <BsGeoAlt className="me-2" /> Location
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="nav-link">
+                <BsInfoCircle className="me-2" /> About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="nav-link">
+                <BsTelephone className="me-2" /> Contact
+              </Link>
+            </li>
           </ul>
+
         </div>
       </div>
     </>

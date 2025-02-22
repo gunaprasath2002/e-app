@@ -49,3 +49,86 @@
 .navbar-nav .dropdown-item:hover {
   color: green !important;
 }
+
+@media (max-width: 480px) {
+  .offcanvas-start {
+    width: 200px !important; /* Adjust the width as needed */
+  }
+}
+
+@media (min-width: 480px) {
+  .offcanvas-start {
+    width: 240px !important; /* Adjust the width as needed */
+  }
+}
+
+/* Rounded Search Box */
+.search-container .input-group .form-control {
+  border-radius: 20px 0 0 20px;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+}
+
+/* Search Button with Slightly Reduced Padding */
+.search-container .input-group .btn {
+  border-radius: 0 20px 20px 0;
+  background-color: #6c757d;
+  color: white;
+  border: 1px solid #6c757d;
+  padding: 8px 16px;  /* Slightly reduced padding */
+}
+
+.search-container .input-group .btn:hover {
+  background-color: #5a6268;
+}
+
+/* Adjust search box size for mobile */
+@media (max-width: 576px) {
+  .search-container {
+    width: 100%;
+  }
+  .search-box {
+    max-width: 80%;
+  }
+}
+
+
+/* General list styling */
+.offcanvas-body ul {
+padding: 0;
+list-style: none;
+}
+
+/* Style each list item */
+.offcanvas-body ul li {
+display: block;
+width: 100%;
+padding: 12px 15px;
+border-bottom: 1px solid #ddd; /* Light separator line */
+transition: background 0.3s ease-in-out;
+}
+
+/* Remove border from last item */
+.offcanvas-body ul li:last-child {
+border-bottom: none;
+}
+
+/* Link styling */
+.offcanvas-body ul li a {
+text-decoration: none;
+color: #333;
+font-weight: 500;
+display: flex;
+align-items: center;
+}
+
+/* Hover effect */
+.offcanvas-body ul li:hover {
+background: #bcbcbc;
+}
+
+/* Icons in list */
+.offcanvas-body ul li a svg {
+margin-right: 10px;
+color: #555;
+}
