@@ -103,7 +103,7 @@ const activeSubcategory = activeCategory?.subcategories.find(
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       > */}
-<Navbar bg="white" variant="light" expand="lg" className="w-100 border-top py-0 sticky-top shadow-sm">
+<Navbar expand="lg" className="w-100 border-top py-0 sticky-top shadow-sm" style={{ backgroundColor: "#f6faff" }}>
         <Container fluid>
           <Navbar.Toggle aria-controls="bottom-navbar" className="mx-auto">
             <FaBars />
@@ -342,17 +342,16 @@ const activeSubcategory = activeCategory?.subcategories.find(
           position: relative;
         }
         .category-btn {
-          background-color: #0044cc;
-          color: white;
+          color:rgb(0, 151, 35);
+          background-color: #f6faff;
           padding: 10px 20px;
           border: none;
           cursor: pointer;
           font-weight: bold;
           transition: background 0.3s;
-          border-radius: 5px;
         }
         .category-btn:hover {
-          background-color: #0033aa;
+          color:rgb(247, 142, 14);
         }
         .dropdown-menu-custom {
           position: absolute;
