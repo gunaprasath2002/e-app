@@ -120,7 +120,7 @@ const activeSubcategory = activeCategory?.subcategories.find(
                   setExpandedSubcategory(null);
                 }}
               >
-                <button className="category-btn" style={{backgroundColor: "#F98866"}}>📂 Shop by Category</button>
+                <button className="category-btn">📂 Shop by Category</button>
 
                 <AnimatePresence>
                   {hoveredMain && (
