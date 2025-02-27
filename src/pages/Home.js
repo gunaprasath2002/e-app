@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Carousel, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import external CSS
 
 // Custom ImageLoader Component
 const ImageLoader = ({ imageUrl, onClick = null, styles = {} }) => {
@@ -51,10 +53,16 @@ const BannerCarousel = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    AOS.init({
+      duration: 1500,
+    });
+  }, []); // Initialize AOS only once
+
+  useEffect(() => {
     const fetchBanners = async () => {
       try {
         const response = await fetch(
-          "https://1a83-59-97-51-97.ngrok-free.app/ecom/banner/",
+          "https://46b1-59-97-51-97.ngrok-free.app/ecom/banner/",
           {
             method: "GET",
             headers: {
@@ -105,6 +113,7 @@ const BannerCarousel = () => {
       {banners.length ? (
         <Carousel
           className="guna"
+          data-aos="fade-left"
           indicators={true}
           controls={true}
           nextIcon={<span className="custom-arrow right-arrow">→</span>}
@@ -115,7 +124,7 @@ const BannerCarousel = () => {
               <ImageLoader
                 onClick={() => handleBannerClick(banner.productId)}
                 // Construct the full image URL using your base URL and the banner field (adjust if needed)
-                imageUrl={`https://1a83-59-97-51-97.ngrok-free.app/${banner.image}`}
+                imageUrl={`https://46b1-59-97-51-97.ngrok-free.app/${banner.image}`}
                 styles={{ maxHeight: "600px", width: "100%", objectFit: "cover" }}
               />
             </Carousel.Item>

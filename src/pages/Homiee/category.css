@@ -13,7 +13,7 @@ body {
   
   .category-scroll-container {
     overflow-x: auto;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     background: #f9f9f9;
     scroll-behavior: smooth;
   }
@@ -25,9 +25,10 @@ body {
   
   .category-wrapper {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap:nowrap;
     gap: 70px;
     justify-content: start;
+    background: white;
   }
   
   /* Grid for smaller screens */
@@ -48,7 +49,7 @@ body {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 30%;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
   }
@@ -110,7 +111,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     transition: 0.3s; 
-    /* box-shadow: 0px 4px 8px rgba(44, 5, 240, 0.1); */
+    box-shadow: 0px 4px 8px rgba(44, 5, 240, 0.1);
     position: relative;
   }
 
@@ -119,6 +120,7 @@ body {
     position: relative;
     overflow: hidden;
     border-radius: 10px 10px 0 0;
+    /* height: 300px; */
   }
 
   .product-image img {
@@ -155,10 +157,17 @@ body {
   }
 
   .product-price {
-    color: #ff5722;
+    color: #3219c6;
     font-size: 14px;
     font-weight: bold;
   }
+
+ .product-time {
+  font-size: 12px;
+  color: #2bba18;
+  margin-top: 5px;
+ }
+
 
   /* Scroll Buttons */
   .scroll-btn {

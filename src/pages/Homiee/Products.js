@@ -3,10 +3,17 @@ import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/Container";
 import "./category.css";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import external CSS
 
-// ImageLoader component
+
+
 const ImageLoader = ({ imageUrl, onClick = null, styles = {} }) => {
   const [imageData, setImageData] = useState(null);
+
+  useEffect(() => {
+      AOS.init({ duration: 1500 }); // Initialize AOS with default settings
+    }, []); // Run AOS only once when component mounts
 
   useEffect(() => {
     const fetchImage = async () => {
@@ -23,7 +30,6 @@ const ImageLoader = ({ imageUrl, onClick = null, styles = {} }) => {
         console.error('Error fetching image:', error);
       }
     };
-
     fetchImage();
   }, [imageUrl]);
 
@@ -41,20 +47,33 @@ const ImageLoader = ({ imageUrl, onClick = null, styles = {} }) => {
   );
 };
 
-// Products component
+const calculateTimeSince = (timestamp) => {
+  const now = new Date();
+  const productTime = new Date(timestamp);
+  const diffInSeconds = Math.floor((now - productTime) / 1000);
+
+  if (diffInSeconds < 60) return `${diffInSeconds} sec ago`;
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  if (diffInMinutes < 60) return `${diffInMinutes} min ago`;
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) return `${diffInHours} hr ago`;
+  const diffInDays = Math.floor(diffInHours / 24);
+  return `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
+};
+
 const Products = () => {
-  const [products, setProducts] = useState([]); // API data state
-  const scrollRef = useRef(null); // Ref for scrolling
+  const [products, setProducts] = useState([]);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://1a83-59-97-51-97.ngrok-free.app/ecom/products/', {
+        const response = await fetch('https://46b1-59-97-51-97.ngrok-free.app/ecom/products/', {
           method: 'GET',
           headers: {
             "Accept": "application/json",
             "ngrok-skip-browser-warning": "98547",
-            "Content-Type": "multipart/form-data", // You might remove or change this header for GET
+            "Content-Type": "multipart/form-data",
           }
         });
         
@@ -63,73 +82,48 @@ const Products = () => {
         }
 
         const data = await response.json();
-        
         if (Array.isArray(data.products)) {
-          setProducts(data.products.slice(0, 4)); 
+          setProducts(data.products.slice(0, 4));
+        } else {
           console.error('API response is not an array:', data);
         }
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
-
     fetchProducts();
   }, []);
 
-  // Scroll functions
-  const scrollLeft = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
-    }
-  };
-
-  // Optional: Handle image click if needed
-  const handleChangeImage = (product) => {
-    console.log("Clicked on product:", product);
-  };
+  useEffect(() => {
+    AOS.init({ duration: 1500 }); // Initialize AOS with default settings
+  }, []); // Run AOS only once when component mounts
 
   return (
-    <>
-    {/* <Container fluid> */}
-      <div>
-        <h4 className="text-start my-4">Popular Products</h4>
-        <div className="product-scroll-container">
-          <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button>
-          <div className="product-list" ref={scrollRef}>
-            {products.length > 0 ? (
-              products.map((product) => (
-                <div key={product.id} className="product-card">
-                  <Link to={`/product/${product.id}`} className="text-decoration-none text-dark">
-                    <div className="product-image">
-                      <ImageLoader
-                        onClick={() => handleChangeImage(product)}
-                        imageUrl={`https://1a83-59-97-51-97.ngrok-free.app/${product.image}`}
-                      />
-                    </div>
-                    <div className="product-details">
-                      <h5 className="product-title">{product.name}</h5>
-                      <p className="product-price">Rs {product.price}</p>
-                      <p className="product-des">{product.description}</p>
-                      <p className="product-offer">{product.offer}</p>
-                    </div>
-                  </Link>
-                </div>
-              ))
-            ) : (
-              <p>Loading products...</p>
-            )}
-          </div>
-          <button className="scroll-btn right" onClick={scrollRight}>&gt;</button>
+    <div>
+      <h4 className="text-start my-4" data-aos="fade-up">Popular Products</h4>
+      <div className="product-scroll-container"  data-aos="fade-up">
+        <div className="product-list" ref={scrollRef}>
+          {products.length > 0 ? (
+            products.map((product) => (
+              <div key={product.id} className="product-card">
+                <Link to={`/product/${product.id}`} className="text-decoration-none text-dark">
+                  <div className="product-image">
+                    <ImageLoader imageUrl={`https://46b1-59-97-51-97.ngrok-free.app/${product.image}`} />
+                  </div>
+                  <div className="product-details">
+                    <h5 className="product-title">{product.name}</h5>
+                    <p className="product-price">Rs {product.price}</p>
+                    <p className="product-time">🕒 {calculateTimeSince(product.timestamp)}</p>
+                  </div>
+                </Link>
+              </div>
+            ))
+          ) : (
+            <p>Loading products...</p>
+          )}
         </div>
       </div>
-    {/* </Container> */}
-    </>
+    </div>
   );
 };
 
