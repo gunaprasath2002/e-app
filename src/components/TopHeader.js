@@ -82,7 +82,7 @@ const Navbar = () => {
           const { latitude, longitude } = position.coords;
   
           // Backend API URL
-          const apiUrl = "https://ff16-59-97-51-97.ngrok-free.app/store/detect-location/";
+          const apiUrl = "https://031b-59-97-51-97.ngrok-free.app/store/detect-location/";
   
           // Request payload
           const requestData = {

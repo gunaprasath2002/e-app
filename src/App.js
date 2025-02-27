@@ -30,7 +30,7 @@ function App() {
       <WishListContext.Provider value={{ wishItems, setWishItems}}> 
       <Router>
        <Header />
-       <hr/>
+       <br/>
         <Routes>
         <Route path="/" element={<Category />} />
         <Route path="/product/101" target ="#"element={<MobileList />} />

@@ -47,7 +47,7 @@ const Categories = () => {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "https://ff16-59-97-51-97.ngrok-free.app/store/categories/",
+          "https://1a83-59-97-51-97.ngrok-free.app/ecom/categories/",
           {
             method: "GET",
             headers: {
@@ -89,7 +89,7 @@ const Categories = () => {
               <Link key={category.id} to={`/category/${category.id}`} className="category-link">
                 <div className="category-item">
                   {/* Use ImageLoader to fetch and display images */}
-                  <ImageLoader imageUrl={`https://ff16-59-97-51-97.ngrok-free.app/${category.image}`} />
+                  <ImageLoader imageUrl={`https://1a83-59-97-51-97.ngrok-free.app/${category.image}`} />
                   <p className="category-text">{category.brand_name}</p>
                 </div>
               </Link>

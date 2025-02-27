@@ -1,64 +1,129 @@
-import React from "react";
-import { Carousel } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Carousel, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import Banner1 from "./images/bannerhome.jpg";
-import Banner2 from "./images/bannerhome1.jpg";
-import Banner3 from "./images/bannerhome2.jpg";
-import Banner4 from "./images/bannerhome3.jpg";
-import Banner5 from "./images/bannerhome4.jpg";
-import Banner6 from "./images/bannerhome5.jpg";
-import Sbanner from "./images/storebanner.jpg";
-import Sbanner1 from "./images/storebanner2.jpg";
 import "./home.css";
 
+// Custom ImageLoader Component
+const ImageLoader = ({ imageUrl, onClick = null, styles = {} }) => {
+  const [imageData, setImageData] = useState(null);
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const response = await fetch(imageUrl, {
+          headers: {
+            Accept: "application/json",
+            "ngrok-skip-browser-warning": "98547",
+          },
+        });
+        const blob = await response.blob();
+        setImageData(blob);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
+
+    fetchImage();
+  }, [imageUrl]);
+
+  return (
+    <div>
+      {imageData ? (
+        <img
+          onClick={onClick}
+          src={URL.createObjectURL(imageData)}
+          alt="Fetched Banner"
+          style={Object.keys(styles).length > 0 ? styles : { maxHeight: "200px" }}
+        />
+      ) : (
+        // Optionally, you can add a small spinner or placeholder while the image loads
+        <Spinner animation="border" role="status" size="sm">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      )}
+    </div>
+  );
+};
+
 const BannerCarousel = () => {
+  const [banners, setBanners] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        const response = await fetch(
+          "https://1a83-59-97-51-97.ngrok-free.app/ecom/banner/",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "ngrok-skip-browser-warning": "98547",
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (Array.isArray(data.Banner)) {
+          setBanners(data.Banner);
+        } else {
+          console.error('API response "banner" is not an array:', data);
+        }
+      } catch (error) {
+        console.error("Error fetching banners:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBanners();
+  }, []);
+
   const handleBannerClick = (productId) => {
-    navigate(`/product-details/${productId}`);
+    if (productId) {
+      navigate(`/product-details/${productId}`);
+    }
   };
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
+  }
 
   return (
     <nav>
-      <Carousel className="guna" indicators={true} controls={true} 
-        nextIcon={<span className="custom-arrow right-arrow">→</span>} 
-        prevIcon={<span className="custom-arrow left-arrow">←</span>}
-      >
-        <Carousel.Item className="pp" onClick={() => handleBannerClick(1)}>
-          <img className="d-block w-100 banner-img" src={Banner1} alt="Music Products" />
-        </Carousel.Item>
-
-        <Carousel.Item className="pp" onClick={() => handleBannerClick(1)}>
-          <img className="d-block w-100 banner-img" src={Sbanner} alt="Music Products" />
-        </Carousel.Item>
-
-        <Carousel.Item className="pp">
-          <Link to="https://www.gadgets360.com/mobiles/realme-price-list">
-            <img className="d-block w-100 banner-img" src={Banner2} alt="Electronics Deals" />
-          </Link>
-        </Carousel.Item>
-
-        <Carousel.Item className="pp" onClick={() => handleBannerClick(3)}>
-          <img className="d-block w-100 banner-img" src={Banner3} alt="Fashion Sale" />
-        </Carousel.Item>
-
-        <Carousel.Item className="pp" onClick={() => handleBannerClick(1)}>
-          <img className="d-block w-100 banner-img" src={Sbanner1} alt="Music Products" />
-        </Carousel.Item>
-
-        <Carousel.Item className="pp" onClick={() => handleBannerClick(3)}>
-          <img className="d-block w-100 banner-img" src={Banner4} alt="Fashion Sale" />
-        </Carousel.Item>
-
-        <Carousel.Item className="pp" onClick={() => handleBannerClick(3)}>
-          <img className="d-block w-100 banner-img" src={Banner5} alt="Fashion Sale" />
-        </Carousel.Item>
-
-        <Carousel.Item className="pp" onClick={() => handleBannerClick(3)}>
-          <img className="d-block w-100 banner-img" src={Banner6} alt="Fashion Sale" />
-        </Carousel.Item>
-      </Carousel>
+      {banners.length ? (
+        <Carousel
+          className="guna"
+          indicators={true}
+          controls={true}
+          nextIcon={<span className="custom-arrow right-arrow">→</span>}
+          prevIcon={<span className="custom-arrow left-arrow">←</span>}
+        >
+          {banners.map((banner, index) => (
+            <Carousel.Item key={index} className="pp">
+              <ImageLoader
+                onClick={() => handleBannerClick(banner.productId)}
+                // Construct the full image URL using your base URL and the banner field (adjust if needed)
+                imageUrl={`https://1a83-59-97-51-97.ngrok-free.app/${banner.image}`}
+                styles={{ maxHeight: "600px", width: "100%", objectFit: "cover" }}
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      ) : (
+        <p>No banners available.</p>
+      )}
     </nav>
   );
 };
