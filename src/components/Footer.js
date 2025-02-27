@@ -55,7 +55,7 @@ const Footer = () => {
         <br />
 
         {/* Features Section */}
-        <Row className="text-center mb-4" style={{ backgroundColor: "#f4e8de", borderRadius: "10px" }}>
+        <Row className="text-center mb-4" style={{ backgroundColor: "#BCCCDC", borderRadius: "10px" }}>
           {[
             { title: "Best prices & offers", icon: "💰" },
             { title: "Free delivery", icon: "🚚" },
@@ -126,10 +126,10 @@ const Footer = () => {
           <Col>
             <h5>Follow Us</h5>
             {[
-              { icon: <FaFacebook style={{ color: "#F98866" }}/>, link: "#" },
-              { icon: <FaTwitter style={{ color: "#F98866" }}/>, link: "#" },
-              { icon: <FaInstagram style={{ color: "#F98866" }}/>, link: "#" },
-              { icon: <FaYoutube style={{ color: "#F98866" }}/>, link: "#" }
+              { icon: <FaFacebook />, link: "#" },
+              { icon: <FaTwitter />, link: "#" },
+              { icon: <FaInstagram />, link: "#" },
+              { icon: <FaYoutube />, link: "#" }
             ].map((social, index) => (
               <motion.a 
                 key={index} 
