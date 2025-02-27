@@ -127,8 +127,8 @@ const Navbar = () => {
   
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
-        <div className="container-fluid d-flex align-items-center justify-content-between flex-nowrap">
+      <nav className="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
+        <div className="container d-flex align-items-center justify-content-between flex-nowrap">
           {/* Left Side: Logo & Brand */}
           {!showSearchBar && (
             <div className="d-flex align-items-center">
@@ -168,7 +168,7 @@ const Navbar = () => {
               )}
               <div className="input-group search-box">
                 <input className="form-control form-control-sm" type="search" placeholder="Search..." />
-                <button className="btn btn-secondary btn-sm" type="submit"><BsSearch /></button>
+                <button className="btn btn-sm" type="submit"><BsSearch /></button>
               </div>
             </form>
           </div>
@@ -240,6 +240,7 @@ const Navbar = () => {
         id="mobileSidebar"
         tabIndex="-1"
         aria-labelledby="mobileSidebarLabel"
+        
       >
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="mobileSidebarLabel">Menu</h5>

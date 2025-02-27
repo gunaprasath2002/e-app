@@ -11,7 +11,7 @@ import "../components/footer.css";
 const Footer = () => {
   return (
     <motion.footer 
-      className="bg-light text-dark pt-5 pb-3"
+      className="text-dark pt-5 pb-3"
       initial={{ opacity: 0, y: 50 }} 
       animate={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.6 }}
@@ -55,7 +55,7 @@ const Footer = () => {
         <br />
 
         {/* Features Section */}
-        <Row className="text-center mb-4">
+        <Row className="text-center mb-4" style={{ backgroundColor: "#f4e8de", borderRadius: "10px" }}>
           {[
             { title: "Best prices & offers", icon: "💰" },
             { title: "Free delivery", icon: "🚚" },
@@ -122,20 +122,20 @@ const Footer = () => {
         </Row>
 
         {/* Social Media & Copyright */}
-        <Row className="mt-5 text-center">
+        <Row className="mt-5 text-center" >
           <Col>
             <h5>Follow Us</h5>
             {[
-              { icon: <FaFacebook />, link: "#" },
-              { icon: <FaTwitter />, link: "#" },
-              { icon: <FaInstagram />, link: "#" },
-              { icon: <FaYoutube />, link: "#" }
+              { icon: <FaFacebook style={{ color: "#F98866" }}/>, link: "#" },
+              { icon: <FaTwitter style={{ color: "#F98866" }}/>, link: "#" },
+              { icon: <FaInstagram style={{ color: "#F98866" }}/>, link: "#" },
+              { icon: <FaYoutube style={{ color: "#F98866" }}/>, link: "#" }
             ].map((social, index) => (
               <motion.a 
                 key={index} 
                 href={social.link} 
                 className="mx-2 fs-4"
-                whileHover={{ scale: 1.3, color: "#28a745" }}
+                whileHover={{ scale: 1.3, color: "#F98866" }}
                 transition={{ duration: 0.2 }}
               >
                 {social.icon}

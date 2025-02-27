@@ -15,19 +15,34 @@
   border-radius: 20px 0 0 20px;
   border: 1px solid #ccc;
   padding: 8px 12px;
+  background-color: #FBEAEB;
+  
 }
 
 /* Search Button with Slightly Reduced Padding */
 .search-container .input-group .btn {
   border-radius: 0 20px 20px 0;
-  background-color: #6c757d;
-  color: white;
-  border: 1px solid #6c757d;
+  background-color: #FBEAEB;
+  color: #F98866;
+  border: 1px solid #ccc;
   padding: 8px 16px;  /* Slightly reduced padding */
 }
 
+.search-box input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.search-box input:focus {
+  box-shadow: 0 0 8px #f99c7f;
+  border-color: #F98866;
+  outline: none;
+}
 .search-container .input-group .btn:hover {
-  background-color: #5a6268;
+  background-color: #F98866;
+  color: #FBEAEB;
 }
 
 
@@ -82,7 +97,7 @@
 }
 
 .navbar.bg-white .nav-item .nav-link:hover {
-  color: #28a745 !important;
+  color: #F98866 !important;
 }
 .nav-link {
   color: #333 !important;
@@ -92,7 +107,7 @@
   gap: 5px;
 }
 .nav-link:hover {
-  color: #28a745 !important;
+  color: #F98866 !important;
 }
 /* Hide Sidebar Toggle on Desktop */
 @media (min-width: 992px) {
@@ -119,7 +134,7 @@
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .dropdown-item:hover {
-  color: green !important;
+  color: #F98866 !important;
 }
 
 @media (max-width: 480px) {
@@ -144,14 +159,14 @@
 /* Search Button with Slightly Reduced Padding */
 .search-container .input-group .btn {
   border-radius: 0 20px 20px 0;
-  background-color: #6c757d;
-  color: white;
-  border: 1px solid #6c757d;
+  background-color: #FBEAEB;
+  color: #F98866;
+  border: 1px solid #ccc;
   padding: 8px 16px;  /* Slightly reduced padding */
 }
 
 .search-container .input-group .btn:hover {
-  background-color: #5a6268;
+  background-color: #F98866;
 }
 
 /* Adjust search box size for mobile */
@@ -164,7 +179,9 @@
   }
 }
 
-
+.offcanvas{
+  background-color: #f9f3ed;
+}
 /* General list styling */
 .offcanvas-body ul {
 padding: 0;
@@ -176,7 +193,7 @@ list-style: none;
 display: block;
 width: 100%;
 padding: 12px 15px;
-border-bottom: 1px solid #ddd; /* Light separator line */
+border-bottom: 1px solid #F98866; /* Light separator line */
 transition: background 0.3s ease-in-out;
 }
 
@@ -196,7 +213,7 @@ align-items: center;
 
 /* Hover effect */
 .offcanvas-body ul li:hover {
-background: #bcbcbc;
+background: #fdcbbb;
 }
 
 /* Icons in list */
@@ -253,4 +270,6 @@ color: #555;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
+.navbar{
+  background-color: #f5dcc6;
+}

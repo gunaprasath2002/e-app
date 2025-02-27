@@ -103,7 +103,7 @@ const activeSubcategory = activeCategory?.subcategories.find(
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       > */}
-<Navbar bg="white" variant="light" expand="lg" className="w-100 border-top py-0 sticky-top shadow-sm">
+<Navbar expand="lg" className="w-100 border-top py-0 sticky-top shadow-sm" style={{ backgroundColor: "#FBEAEB" }}>
         <Container fluid>
           <Navbar.Toggle aria-controls="bottom-navbar" className="mx-auto">
             <FaBars />
@@ -120,7 +120,7 @@ const activeSubcategory = activeCategory?.subcategories.find(
                   setExpandedSubcategory(null);
                 }}
               >
-                <button className="category-btn">📂 Shop by Category</button>
+                <button className="category-btn" style={{backgroundColor: "#F98866"}}>📂 Shop by Category</button>
 
                 <AnimatePresence>
                   {hoveredMain && (
