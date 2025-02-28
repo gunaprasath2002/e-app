@@ -10,6 +10,7 @@ import Products1 from "./Products1";
 import Products2 from "./Products2";
 import Productss from "./Productss";
 import Banners from "./Banners";
+import Recent from "./Recentv";
 
 
 
@@ -32,6 +33,8 @@ const App= () => {
      <Productss />
         
      <Banners />
+
+     <Recent />
        
     </>
   );

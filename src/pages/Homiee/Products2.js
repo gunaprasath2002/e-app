@@ -73,7 +73,7 @@ const Products = () => {
   return (
     <Container fluid>
     <div>
-      <h4 className="text-start my-4">Popular Products</h4>
+      <h4 className="text-start my-4">Best Of Electronics</h4>
       <div className="product-scroll-container">
         <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button>
 

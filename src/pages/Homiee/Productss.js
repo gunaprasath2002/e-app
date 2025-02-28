@@ -72,7 +72,7 @@ const ProductCarousel = () => {
     <Row className="mt-4">
       {/* Featured Products Carousel */}
       <Col md={9}>
-        <h4 className="mb-3">Featured Products</h4>
+        <h4 className="mb-3">Top Trendy Collections!</h4>
 
         {loading ? (
           <div style={styles.loadingContainer}>

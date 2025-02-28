@@ -14,7 +14,7 @@ import MobileList from "./pages/Product/ProductListPage";
 import ItemDetailsPage from "./pages/Product/ItemDetailsPage";
 import BuyNow from "./pages/BuyNow";
 import Login from "./pages/Authentication/Login";
-import Singup from "./pages/Authentication/SignUp";
+import Singup from "./pages/Authentication/Signup";
 
 
 export const CartContext = createContext();
