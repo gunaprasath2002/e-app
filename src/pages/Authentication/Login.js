@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Login.css"; // Import CSS file
+import "./Login"; // Import CSS file
 
 export default function Login() {
 	const [formData, setFormData] = useState({ email: "", password: "" });
