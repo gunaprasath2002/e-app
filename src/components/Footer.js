@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect}from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"; // Import Framer Motion
@@ -7,9 +7,20 @@ import {
   FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock 
 } from "react-icons/fa";
 import "../components/footer.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
+
+
+ 
 const Footer = () => {
+
+
+  useEffect(() => {
+    AOS.init({ duration: 1500 }); // Initialize AOS with default settings
+  }, []); // Run AOS only once when component mounts
   return (
+    <div data-aos="fade-up">
     <motion.footer 
       className="text-dark pt-5 pb-3"
       initial={{ opacity: 0, y: 50 }} 
@@ -153,6 +164,7 @@ const Footer = () => {
         </Row>
       </Container>
     </motion.footer>
+    </div> // End of AOS container div
   );
 };
 

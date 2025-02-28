@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { FaHeadphones, FaBars } from "react-icons/fa";
 import { useNavigate,Link } from "react-router-dom";
@@ -7,6 +7,13 @@ import "./header.css";
 import { FaTag } from "react-icons/fa";
 import TopHeader from "./TopHeader";
 import {category} from "./Datas";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
+
+
+
+
+
 
 const categories = [
   {
@@ -47,7 +54,7 @@ const dropdownVariants = {
 };
 
 
-
+ 
 
 const BottomNavbar = () => {
 // Controls whether the entire dropdown is visible on hover
@@ -93,6 +100,9 @@ const activeSubcategory = activeCategory?.subcategories.find(
   (sub) => sub.title === expandedSubcategory
 );
  
+useEffect(() => {
+  AOS.init({ duration: 1500 }); // Initialize AOS with default settings
+}, []); // Run AOS only once when component mounts
 
   return (
     <>
@@ -103,7 +113,7 @@ const activeSubcategory = activeCategory?.subcategories.find(
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       > */}
-<Navbar expand="lg" className="w-100 border-top py-0 sticky-top shadow-sm" style={{ backgroundColor: "#f6faff" }}>
+<Navbar expand="lg" className="w-100 border-top py-0 sticky-top shadow-sm" style={{ backgroundColor: "#f6faff" }} data-aos="fade-down">
         <Container fluid>
           <Navbar.Toggle aria-controls="bottom-navbar" className="mx-auto">
             <FaBars />

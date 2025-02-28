@@ -11,7 +11,7 @@ import Products2 from "./Products2";
 import Productss from "./Productss";
 import Banners from "./Banners";
 import Recent from "./Recentv";
-
+// import Summa from "../Summa";
 
 
 const App= () => {
@@ -21,7 +21,7 @@ const App= () => {
       <Banner />
         <hr />
      <Categories />
-        
+     {/* <Summa />   */}
      <Products />
         
      <Products1 />
@@ -35,6 +35,7 @@ const App= () => {
      <Banners />
 
      <Recent />
+   
        
     </>
   );

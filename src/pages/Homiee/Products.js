@@ -1,19 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from "react-bootstrap/Container";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./category.css";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import external CSS
-
-
+import "aos/dist/aos.css";
 
 const ImageLoader = ({ imageUrl, onClick = null, styles = {} }) => {
   const [imageData, setImageData] = useState(null);
 
   useEffect(() => {
-      AOS.init({ duration: 1500 }); // Initialize AOS with default settings
-    }, []); // Run AOS only once when component mounts
+    AOS.init({ duration: 1500 });
+  }, []);
 
   useEffect(() => {
     const fetchImage = async () => {
@@ -27,7 +24,7 @@ const ImageLoader = ({ imageUrl, onClick = null, styles = {} }) => {
         const blob = await response.blob();
         setImageData(blob);
       } catch (error) {
-        console.error('Error fetching image:', error);
+        console.error("Error fetching image:", error);
       }
     };
     fetchImage();
@@ -39,8 +36,8 @@ const ImageLoader = ({ imageUrl, onClick = null, styles = {} }) => {
         <img
           onClick={onClick}
           src={URL.createObjectURL(imageData)}
-          alt="Fetched Image"
-          style={Object.keys(styles).length > 0 ? styles : { maxHeight: '200px' }}
+          alt="Product"
+          // style={Object.keys(styles).length > 0 ? styles : { maxHeight: "200px" }}
         />
       )}
     </div>
@@ -58,7 +55,7 @@ const calculateTimeSince = (timestamp) => {
   const diffInHours = Math.floor(diffInMinutes / 60);
   if (diffInHours < 24) return `${diffInHours} hr ago`;
   const diffInDays = Math.floor(diffInHours / 24);
-  return `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
+  return `${diffInDays} day${diffInDays > 1 ? "s" : ""} ago`;
 };
 
 const Products = () => {
@@ -68,50 +65,67 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://46b1-59-97-51-97.ngrok-free.app/ecom/products/', {
-          method: 'GET',
+        const response = await fetch("https://d837-59-97-51-97.ngrok-free.app/ecom/products/", {
+          method: "GET",
           headers: {
-            "Accept": "application/json",
+            Accept: "application/json",
             "ngrok-skip-browser-warning": "98547",
             "Content-Type": "multipart/form-data",
-          }
+          },
         });
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         const data = await response.json();
         if (Array.isArray(data.products)) {
-          setProducts(data.products.slice(0, 4));
+          setProducts(data.products.slice(0, 10));
         } else {
-          console.error('API response is not an array:', data);
+          console.error("API response is not an array:", data);
         }
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error("Error fetching products:", error);
       }
     };
     fetchProducts();
   }, []);
 
   useEffect(() => {
-    AOS.init({ duration: 1500 }); // Initialize AOS with default settings
-  }, []); // Run AOS only once when component mounts
+    AOS.init({ duration: 1500 });
+  }, []);
 
+    // Scroll functions
+    const scrollLeft = () => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
+      }
+    };
+  
+    const scrollRight = () => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
+      }
+    };
   return (
     <div>
-      <h4 className="text-start my-4" data-aos="fade-up">Popular Products</h4>
-      <div className="product-scroll-container"  data-aos="fade-up">
+      <h4 className="text-start my-4" data-aos="fade-up">
+        Popular Products
+      </h4>
+      <div className="product-scroll-container" data-aos="fade-up">
         <div className="product-list" ref={scrollRef}>
+        <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button>
+
           {products.length > 0 ? (
             products.map((product) => (
               <div key={product.id} className="product-card">
                 <Link to={`/product/${product.id}`} className="text-decoration-none text-dark">
                   <div className="product-image">
-                    <ImageLoader imageUrl={`https://46b1-59-97-51-97.ngrok-free.app/${product.image}`} />
+                    <ImageLoader imageUrl={`https://d837-59-97-51-97.ngrok-free.app/${product.image}`} />
                   </div>
                   <div className="product-details">
                     <h5 className="product-title">{product.name}</h5>
+                    <h6 className="product-description">{product.description}</h6>
                     <p className="product-price">Rs {product.price}</p>
                     <p className="product-time">🕒 {calculateTimeSince(product.timestamp)}</p>
                   </div>
@@ -122,6 +136,8 @@ const Products = () => {
             <p>Loading products...</p>
           )}
         </div>
+        <button className="scroll-btn right" onClick={scrollRight}>&gt;</button>
+
       </div>
     </div>
   );

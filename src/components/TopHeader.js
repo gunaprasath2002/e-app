@@ -5,6 +5,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@popperjs/core"; // Ensure Popper.js is loaded
 import { Offcanvas } from "bootstrap"; // Explicitly import Offcanvas
 import { Modal, Button } from "react-bootstrap"; 
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 import { BsGeoAlt, BsPersonCircle, BsCart3, BsSearch, BsList, BsArrowLeft, BsInfoCircle,BsTelephone, BsHouse } from "react-icons/bs";
@@ -20,6 +22,10 @@ const Navbar = () => {
   const [pincode, setPincode] = useState("");
   const [error, setError] = useState("");
   const [userLocation, setUserLocation] = useState("Location");
+
+   useEffect(() => {
+      AOS.init({ duration: 1500 }); // Initialize AOS with default settings
+    }, []); // Run AOS only once when component mounts
 
   // Close search bar when clicking outside
   useEffect(() => {
@@ -127,7 +133,7 @@ const Navbar = () => {
   
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
+      <nav className="navbar navbar-expand-lg navbar-light shadow-sm sticky-top" data-aos="fade-down">
         <div className="container d-flex align-items-center justify-content-between flex-nowrap">
           {/* Left Side: Logo & Brand */}
           {!showSearchBar && (
