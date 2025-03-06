@@ -113,7 +113,7 @@ useEffect(() => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       > */}
-<Navbar expand="lg" className="w-100 border-top py-0 sticky-top shadow-sm" style={{ backgroundColor: "#f6faff" }} data-aos="fade-down">
+<Navbar expand="lg" className="w-100 border-top py-0 sticky-top shadow-sm" style={{ backgroundColor: "#f6faff" }} >
         <Container fluid>
           <Navbar.Toggle aria-controls="bottom-navbar" className="mx-auto">
             <FaBars />

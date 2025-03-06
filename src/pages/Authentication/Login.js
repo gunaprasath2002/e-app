@@ -18,7 +18,7 @@ export default function Login() {
 		setError("");
 
 		try {
-			const response = await fetch("http://127.0.0.1:8000/api/login/", {
+			const response = await fetch("https://dd18-59-97-51-97.ngrok-free.app/ecom/login/", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(formData),
@@ -28,7 +28,7 @@ export default function Login() {
 			const data = await response.json();
 			if (response.ok) {
 				localStorage.setItem("token", data.token); // Store token for future requests
-				navigate("/dashboard"); // Redirect user after login
+				navigate("/"); // Redirect user after login
 			} else {
 				setError(data.error || "Login failed. Please try again.");
 			}

@@ -62,7 +62,7 @@ const BannerCarousel = () => {
     const fetchBanners = async () => {
       try {
         const response = await fetch(
-          "https://d837-59-97-51-97.ngrok-free.app/ecom/banner/",
+          "https://89c1-59-97-51-97.ngrok-free.app/ecom/banner/",
           {
             method: "GET",
             headers: {
@@ -124,7 +124,7 @@ const BannerCarousel = () => {
               <ImageLoader
                 onClick={() => handleBannerClick(banner.productId)}
                 // Construct the full image URL using your base URL and the banner field (adjust if needed)
-                imageUrl={`https://d837-59-97-51-97.ngrok-free.app/${banner.image}`}
+                imageUrl={`https://89c1-59-97-51-97.ngrok-free.app/${banner.image}`}
                 styles={{ maxHeight: "600px", width: "100%", objectFit: "cover" }}
               />
             </Carousel.Item>

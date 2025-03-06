@@ -65,7 +65,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://d837-59-97-51-97.ngrok-free.app/ecom/products/", {
+        const response = await fetch("https://89c1-59-97-51-97.ngrok-free.app/ecom/products/", {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -121,11 +121,11 @@ const Products = () => {
               <div key={product.id} className="product-card">
                 <Link to={`/product/${product.id}`} className="text-decoration-none text-dark">
                   <div className="product-image">
-                    <ImageLoader imageUrl={`https://d837-59-97-51-97.ngrok-free.app/${product.image}`} />
+                    <ImageLoader imageUrl={`https://89c1-59-97-51-97.ngrok-free.app/${product.image}`} />
                   </div>
                   <div className="product-details">
                     <h5 className="product-title">{product.name}</h5>
-                    <h6 className="product-description">{product.description}</h6>
+                    <h8 className="product-description">{product.description}</h8>
                     <p className="product-price">Rs {product.price}</p>
                     <p className="product-time">🕒 {calculateTimeSince(product.timestamp)}</p>
                   </div>

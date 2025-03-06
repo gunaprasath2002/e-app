@@ -33,6 +33,11 @@ footer ul li:hover {
   color: #28a745;
 }
 
+.eee img{
+  height: 200px;
+  object-fit: fit;
+
+}
 /* Newsletter Section with Background Image */
 .newsletter-section {
   background-image: url("../pages/images/footer1.jpg");

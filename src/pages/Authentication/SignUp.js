@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Signup.css"; // Import CSS file
+import "./Signup.css";
 
 export default function Signup() {
-    const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+    const [formData, setFormData] = useState({ full_name: "", email: "", password: "" });
     const [error, setError] = useState("");
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
@@ -20,9 +20,13 @@ export default function Signup() {
         setMessage("");
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/signup/", {
+            const response = await fetch("https://dd18-59-97-51-97.ngrok-free.app/ecom/register/", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    "ngrok-skip-browser-warning": "true"
+                },
                 body: JSON.stringify(formData),
             });
 
@@ -73,14 +77,14 @@ export default function Signup() {
 
                         <form onSubmit={handleSubmit}>
                             <motion.div className="mb-3">
-                                <label htmlFor="name" className="form-label">Full Name</label>
+                                <label htmlFor="full_name" className="form-label">Full Name</label>
                                 <input
                                     type="text"
-                                    id="name"
-                                    name="name"
+                                    id="full_name"
+                                    name="full_name"
                                     className="form-control"
                                     placeholder="Enter your full name"
-                                    value={formData.name}
+                                    value={formData.full_name}
                                     onChange={handleChange}
                                     required
                                 />
@@ -138,7 +142,7 @@ export default function Signup() {
                     transition={{ delay: 0.3, duration: 0.5 }}
                 >
                     <img
-                        src="https://img.freepik.com/free-vector/my-password-concept-illustration_114360-3579.jpg?t=st=1740729622~exp=1740733222~hmac=2bbbc7af3ec32076a31c1e14c5a6e39f5271ca290ace57d341635e51327b43d2&w=900"
+                        src="https://img.freepik.com/free-vector/my-password-concept-illustration_114360-3579.jpg"
                         alt="Signup Illustration"
                         className="img-fluid signup-image"
                     />

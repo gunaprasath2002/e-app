@@ -133,7 +133,7 @@ const Navbar = () => {
   
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light shadow-sm sticky-top" data-aos="fade-down">
+      <nav className="navbar navbar-expand-lg navbar-light shadow-sm sticky-top" >
         <div className="container d-flex align-items-center justify-content-between flex-nowrap">
           {/* Left Side: Logo & Brand */}
           {!showSearchBar && (

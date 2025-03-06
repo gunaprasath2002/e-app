@@ -1,4 +1,4 @@
-import { BrowserRouter as Router,  Routes,Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Category from "./pages/Homiee/Category";
 import './App.css';
 import Header from "./components/Header";
@@ -15,7 +15,7 @@ import ItemDetailsPage from "./pages/Product/ItemDetailsPage";
 import BuyNow from "./pages/BuyNow";
 import Login from "./pages/Authentication/Login";
 import Singup from "./pages/Authentication/Signup";
-
+import BottomButton from "./components/Bottambutton";
 
 export const CartContext = createContext();
 export const WishListContext = createContext();
@@ -31,33 +31,29 @@ function App() {
        <Header />
        <br/>
         <Routes>
-        <Route path="/" element={<Category />} />
-        <Route path="/product/101" target ="#"element={<MobileList />} />
-        <Route path="/product/:id" element={<ItemDetailsPage />} />
-
-         <Route path="/product-details/:productId" element={<ProductDetails />} />
-         {/* <Route path="/product/1" element={<ProductDetails />} /> */}
-
-         <Route path="/login" element={<Login />} />
-         <Route path="/signup" element={<Singup />} />
-   
-         <Route path="/product-details/:productId" element={<Slide />} />
-         <Route path="/about" element={<About />} />
-         <Route path="/contact" element={<Contact />} />
-
-         <Route path="/cart" element={<CartPage />} />
-         <Route path="/wishlist" element={<Wishlist />} />
-         <Route path="/buy" element={<BuyNow />} />
-
-   
+          <Route path="/" element={<Category />} />
+          <Route path="/product/101" target ="#" element={<MobileList />} />
+          <Route path="/product/:id" element={<ItemDetailsPage />} />
+          <Route path="/product-details/:productId" element={<ProductDetails />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Singup />} />
+          <Route path="/product-details/:productId" element={<Slide />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/buy" element={<BuyNow />} />
         </Routes>
+
+
        <hr/>
        <Footer />
+       
+       <BottomButton />
       </Router>
-
       </WishListContext.Provider>
-      </CartContext.Provider>
-);
+    </CartContext.Provider>
+  );
 }
 
 export default App;

@@ -126,7 +126,7 @@ body {
   .product-image img {
     width: 250px;
     height: 350px;
-    object-fit:cover;
+    object-fit:fit;
     transition: transform 0.3s ease-in-out;
   }
 
